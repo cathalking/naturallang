@@ -1,6 +1,7 @@
 package ck.apps.leabharcleachtadh.games;
 
-import ck.apps.leabharcleachtadh.audio.AudioFilePlayer;
+import ck.apps.leabharcleachtadh.audio.AudioPlayer;
+import ck.apps.leabharcleachtadh.audio.SpeechLookup;
 import ck.apps.leabharcleachtadh.games.domain.UserInput;
 import ck.apps.leabharcleachtadh.sentencegenerator.*;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm;
@@ -56,7 +57,7 @@ public class Practice {
     void runSession(Supplier<VerbUsage> supplier) {
         Scanner scanner = new Scanner(System.in);
         List<VerbUsage> skipped = new ArrayList<>();
-        AudioFilePlayer audioPlayer = new AudioFilePlayer();
+        AudioPlayer audioPlayer = new AudioPlayer();
 
         System.out.printf("Commands: Next/Skip 'n', Progress Summary 'p', Quit 'q'\n");
 
@@ -102,7 +103,7 @@ public class Practice {
                     incorrect.put(verbUsage, response);
                     System.out.printf((char)27 + "[31m"+ "X >>> %s\n", officialTranslation + (char)27 + "[0m");
                 }
-//                 audioPlayer.playSentence(officialTranslation, SpeechLookup.Speed.SLOWER);
+                    audioPlayer.playSentence(officialTranslation/* + " é"*/, SpeechLookup.Speed.SLOWER);
             }
         }
 

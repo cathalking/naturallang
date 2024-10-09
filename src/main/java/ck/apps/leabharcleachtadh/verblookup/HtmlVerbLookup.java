@@ -26,7 +26,7 @@ public class HtmlVerbLookup {
         String conj = getConjugation(conjs, verbUsage.getVerb(), verbUsage.getTense(), verbUsage.getSubject());
         if (SentenceForm.QUESTION_VERB_NEGATIVE.equals(verbUsage.getSentenceForm())) {
             conj = conj.replace("an ", "nach ");
-            conj = conj.replace("ar ", "nar ");
+            conj = conj.replace("ar ", "nár ");
         }
         return conj;
     }

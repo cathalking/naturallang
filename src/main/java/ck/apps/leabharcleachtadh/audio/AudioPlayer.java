@@ -1,38 +1,47 @@
 package ck.apps.leabharcleachtadh.audio;
 
 import ck.apps.leabharcleachtadh.audio.SpeechLookup.Speed;
+import ck.apps.leabharcleachtadh.games.domain.UserInput;
 import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLEncoder;
 
 import javax.sound.sampled.*;
 import javax.sound.sampled.DataLine.Info;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Scanner;
 
-import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
+import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 
-public class AudioFilePlayer {
+public class AudioPlayer {
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        final AudioFilePlayer player = new AudioFilePlayer ();
-        String verb = "déan";
-        player.play(verb);
+    public static void main(String[] args) {
+        AudioPlayer practice = new AudioPlayer();
+        practice.runSession();
     }
 
-    public void play(String verb) throws UnsupportedEncodingException {
-        final File file = new File("/var/tmp/focloir/" + verb + ".mp3");
-        try {
-            if (!file.exists()) {
-                String url = "http://www.teanglann.ie/CanU%2F" + URLEncoder.encode(verb, "UTF8") + ".mp3";
-                FileUtils.copyURLToFile(new URL(url), file);
+    private void runSession() {
+        Scanner scanner = new Scanner(System.in);
+        AudioPlayer audioPlayer = new AudioPlayer();
+
+        System.out.print("Commands: Quit 'q'\n");
+
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.length() == 1) {
+                UserInput userInput = UserInput.from(input);
+                boolean keepGoing = true;
+                if (userInput == UserInput.QUIT) {
+                    System.out.print("Quitting...\n");
+                    keepGoing = false;
+                }
+                if (!keepGoing) {
+                    return;
+                }
+            } else {
+                audioPlayer.playSentence(input, SpeechLookup.Speed.SLOWER);
             }
-            play(file);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

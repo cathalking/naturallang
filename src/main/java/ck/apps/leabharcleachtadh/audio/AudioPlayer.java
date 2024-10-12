@@ -18,7 +18,9 @@ public class AudioPlayer {
 
     public static void main(String[] args) {
         AudioPlayer practice = new AudioPlayer();
-        practice.runSession();
+//        practice.runSession();
+        final File file = new File("/var/tmp/audio.wav");
+        practice.play(file);
     }
 
     private void runSession() {
@@ -47,7 +49,8 @@ public class AudioPlayer {
 
     public void playSentence(String s, Speed speed) {
         try {
-            final File file = new File("/var/tmp/abair/" + s + ".mp3");
+            final File file = new File("/var/tmp/audio.wav");
+            // final File file = new File("/var/tmp/abair/" + s + ".mp3");
             if (!file.exists()) {
                 String url = SpeechLookup.toSpeech(s, speed);
                 if (null == url) {

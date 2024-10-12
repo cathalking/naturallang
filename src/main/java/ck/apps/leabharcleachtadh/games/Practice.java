@@ -97,13 +97,13 @@ public class Practice {
                 String officialTranslation = translate(verbUsage);
 //                String officialTranslationRaw = usage.toSentence();
 //                String officialTranslation = officialTranslationRaw.replaceAll(" \\(the thing\\)", "");
-                if (officialTranslation.equalsIgnoreCase(response)) {
+                if (officialTranslation.replaceAll("\\?", "").equalsIgnoreCase(response.replaceAll("\\?", ""))) {
                     correct.put(verbUsage, response);
                 } else {
                     incorrect.put(verbUsage, response);
                     System.out.printf((char)27 + "[31m"+ "X >>> %s\n", officialTranslation + (char)27 + "[0m");
                 }
-                    audioPlayer.playSentence(officialTranslation/* + " é"*/, SpeechLookup.Speed.SLOWER);
+//                    audioPlayer.playSentence(officialTranslation/* + " é"*/, SpeechLookup.Speed.SLOWER);
             }
         }
 

@@ -32,7 +32,7 @@ public class SpeechLookup {
      */
     public static String toSpeech(String sentence, Speed speed) throws IOException {
         String countdown = String.valueOf(2000 - sentence.length());
-        Document doc = Jsoup.connect("http://www.abair.tcd.ie/?view=files&lang=gle&page=synthesis&synth=gd&xpos=&ypos=&speed=Gnáthluas&pitch=1.0&colors=default")
+        Document doc = Jsoup.connect("https://www.abair.tcd.ie/?view=files&lang=gle&page=synthesis&synth=gd&xpos=&ypos=&speed=Gnáthluas&pitch=1.0&colors=default")
                 .data("input", sentence,
                       "submit", "Déan sintéis",
                       "lang", "gle",

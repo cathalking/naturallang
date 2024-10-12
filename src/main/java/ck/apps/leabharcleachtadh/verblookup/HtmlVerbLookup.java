@@ -68,7 +68,7 @@ public class HtmlVerbLookup {
                 .replaceAll("ó", "o_x")
                 .replaceAll("ú", "u_x")
                 ;
-        return "http://www.focloir.ie/en/grammar/ei/" + verbRoot + "_verb";
+        return "https://www.focloir.ie/en/grammar/ei/" + verbRoot + "_verb";
     }
 
 }

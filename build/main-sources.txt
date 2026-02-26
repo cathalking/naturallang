@@ -1,0 +1,15 @@
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/audio/AudioPlayer.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/audio/SpeechLookup.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/games/PlayAudio.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/games/Practice.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/games/domain/UserInput.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/IrregularConj.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/IrregularConjKey.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/Sentence.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/Verb.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/domain/SentenceForm.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/domain/Subject.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/domain/Tense.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/sentencegenerator/domain/VerbUsage.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/verblookup/ConjugationFinder.java
+/Users/cathalking/code/javaStuff/naturallang/src/main/java/ck/apps/leabharcleachtadh/verblookup/HtmlVerbLookup.java

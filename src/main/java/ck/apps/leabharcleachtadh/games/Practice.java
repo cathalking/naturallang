@@ -8,6 +8,7 @@ import ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.Subject;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.Tense;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.VerbUsage;
+import ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookup;
 import ck.apps.leabharcleachtadh.verblookup.HtmlVerbLookup;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang3.StringUtils;
@@ -39,10 +40,29 @@ public class Practice {
             .build();
 
     static int promptColour = 36;
+    private static final String MODE_SCRIPT = "--script";
+    private static final String MAX_QUESTIONS_PREFIX = "--max-questions=";
 
     public static void main(String[] args) {
-        if (args.length > 0) {
-            promptColour = Integer.parseInt(args[0]);
+        boolean scriptMode = false;
+        Integer maxQuestions = null;
+        for (String arg : args) {
+            if (MODE_SCRIPT.equals(arg)) {
+                scriptMode = true;
+            } else if (arg.startsWith(MAX_QUESTIONS_PREFIX)) {
+                String raw = arg.substring(MAX_QUESTIONS_PREFIX.length());
+                try {
+                    maxQuestions = Integer.parseInt(raw);
+                } catch (NumberFormatException ignored) {
+                    // Ignore invalid max-questions values.
+                }
+            } else {
+                try {
+                    promptColour = Integer.parseInt(arg);
+                } catch (NumberFormatException ignored) {
+                    // Ignore unrecognized args to keep CLI resilient.
+                }
+            }
         }
 
         Practice practice = new Practice();
@@ -51,23 +71,44 @@ public class Practice {
         // Verb[] verbs = new Verb[] { Verb.DO };
         Verb[] verbs = ENGLISH2IRISH.keySet().toArray(new Verb[0]);
         List<VerbUsage> permutations = permutations(verbs, forms, Tense.values(), Subject.values(), "(the thing)");
-        practice.runSession(() -> getNextRandom(permutations));
+        practice.runSession(() -> getNextRandom(permutations), scriptMode, maxQuestions);
     }
 
-    void runSession(Supplier<VerbUsage> supplier) {
+    void runSession(Supplier<VerbUsage> supplier, boolean scriptMode, Integer maxQuestions) {
         Scanner scanner = new Scanner(System.in);
         List<VerbUsage> skipped = new ArrayList<>();
         AudioPlayer audioPlayer = new AudioPlayer();
 
-        System.out.printf("Commands: Next/Skip 'n', Progress Summary 'p', Quit 'q'\n");
+        if (!scriptMode) {
+            System.out.printf("Commands: Next/Skip 'n', Progress Summary 'p', Quit 'q'\n");
+        }
 
         Map<VerbUsage, String> correct = new HashMap<>();
         Map<VerbUsage, String> incorrect = new HashMap<>();
+        int asked = 0;
         while(true) {
+            if (maxQuestions != null && asked >= maxQuestions) {
+                if (!scriptMode) {
+                    System.out.printf("Reached max questions. Exiting.\n");
+                }
+                return;
+            }
             VerbUsage verbUsage = supplier.get();
-            System.out.printf(colour("%s : \n", promptColour), Sentence.toSentence(verbUsage));
+            asked++;
+            String prompt = Sentence.toSentence(verbUsage);
+            if (scriptMode) {
+                System.out.printf("%s\n", prompt);
+            } else {
+                System.out.printf(colour("%s : \n", promptColour), prompt);
+            }
 //            System.out.printf("%s : \n", translate(usage) + " - " + usage);
 
+            if (!scanner.hasNextLine()) {
+                if (!scriptMode) {
+                    System.out.printf("No input available. Exiting.\n");
+                }
+                return;
+            }
             String response = scanner.nextLine();
             if (response.length() == 1) {
                 UserInput userInput = UserInput.from(response);
@@ -101,7 +142,11 @@ public class Practice {
                     correct.put(verbUsage, response);
                 } else {
                     incorrect.put(verbUsage, response);
-                    System.out.printf((char)27 + "[31m"+ "X >>> %s\n", officialTranslation + (char)27 + "[0m");
+                    if (!scriptMode) {
+                        System.out.printf((char)27 + "[31m"+ "X >>> %s\n", officialTranslation + (char)27 + "[0m");
+                    } else {
+                        System.out.printf("X >>> %s\n", officialTranslation);
+                    }
                 }
 //                    audioPlayer.playSentence(officialTranslation/* + " é"*/, SpeechLookup.Speed.SLOWER);
             }
@@ -158,7 +203,11 @@ public class Practice {
     private String translate(VerbUsage verbUsage) {
         String irishVerbConj = "?";
         try {
-            irishVerbConj = HtmlVerbLookup.parse(verbUsage);
+            try {
+                irishVerbConj = BuNaMoVerbLookup.parse(verbUsage);
+            } catch (IOException e) {
+                irishVerbConj = HtmlVerbLookup.parse(verbUsage);
+            }
             if (verbUsage.getSubject().equals(Subject.SING_3RD_FEM)) {
                 irishVerbConj = irishVerbConj.replaceAll(" sé", " sí");
             }

@@ -1,0 +1,4 @@
+/Users/cathalking/code/javaStuff/naturallang/src/test/java/ck/apps/leabharcleachtadh/sentencegenerator/SentenceGeneratorJUnit5Test.java
+/Users/cathalking/code/javaStuff/naturallang/src/test/java/ck/apps/leabharcleachtadh/sentencegenerator/SentenceGeneratorTest.java
+/Users/cathalking/code/javaStuff/naturallang/src/test/java/ck/apps/leabharcleachtadh/verblookup/HtmlVerbLookupParameterizedTest.java
+/Users/cathalking/code/javaStuff/naturallang/src/test/java/ck/apps/leabharcleachtadh/verblookup/HtmlVerbLookupTest.java

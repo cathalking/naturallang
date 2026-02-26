@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" tests="58" skipped="0" failures="0" errors="0" timestamp="2026-02-23T20:18:39.414Z" hostname="Cathals-MacBook-Air.local" time="0.073">
+  <properties/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_1ST, Tense=PRESENT, Expected=i am %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.007"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_2ND, Tense=PRESENT, Expected=you are %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=he is %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=she is %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_1ST, Tense=PRESENT, Expected=we are %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_2ND, Tense=PRESENT, Expected=you(pl) are %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_3RD, Tense=PRESENT, Expected=they are %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=SING_1ST, Tense=PRESENT, Expected=i am not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=SING_2ND, Tense=PRESENT, Expected=you are not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=he is not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=she is not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=PLURAL_1ST, Tense=PRESENT, Expected=we are not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=PLURAL_2ND, Tense=PRESENT, Expected=you(pl) are not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=BE, Subject=PLURAL_3RD, Tense=PRESENT, Expected=they are not %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=SING_1ST, Tense=PRESENT, Expected=am I %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=SING_2ND, Tense=PRESENT, Expected=are you %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=is he %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=is she %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=PLURAL_1ST, Tense=PRESENT, Expected=are we %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=PLURAL_2ND, Tense=PRESENT, Expected=are you(pl) %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=BE, Subject=PLURAL_3RD, Tense=PRESENT, Expected=are they %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=SING_1ST, Tense=PRESENT, Expected=am i not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=SING_2ND, Tense=PRESENT, Expected=are you not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=is he not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=is she not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=PLURAL_1ST, Tense=PRESENT, Expected=are we not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=PLURAL_2ND, Tense=PRESENT, Expected=are you(pl) not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=BE, Subject=PLURAL_3RD, Tense=PRESENT, Expected=are they not %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_1ST, Tense=PAST, Expected=i was %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_2ND, Tense=PAST, Expected=you were %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_3RD_MASC, Tense=PAST, Expected=he was %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=SING_3RD_FEM, Tense=PAST, Expected=she was %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_1ST, Tense=PAST, Expected=we were %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_2ND, Tense=PAST, Expected=you(pl) were %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=BE, Subject=PLURAL_3RD, Tense=PAST, Expected=they were %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=MAKE, Subject=SING_2ND, Tense=PAST, Expected=you made %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=MAKE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=he makes %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=MAKE, Subject=SING_2ND, Tense=FUTURE, Expected=you will make %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=MAKE, Subject=SING_2ND, Tense=PAST, Expected=you did not make %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=MAKE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=he does not make %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=MAKE, Subject=SING_2ND, Tense=PAST, Expected=did you make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=MAKE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=does he make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=MAKE, Subject=SING_3RD_FEM, Tense=FUTURE, Expected=will she make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=MAKE, Subject=SING_2ND, Tense=PAST, Expected=did you not make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=MAKE, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=does he not make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=MAKE, Subject=SING_3RD_FEM, Tense=FUTURE, Expected=will she not make %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=she does %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_POSITIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=PAST, Expected=she did %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=PRESENT, Expected=she does not do %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=STATEMENT_NEGATIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=PAST, Expected=she did not do %s" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=DO, Subject=SING_2ND, Tense=PAST, Expected=did you do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=DO, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=does he do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_POSITIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=FUTURE, Expected=will she do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.001"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=DO, Subject=SING_2ND, Tense=PAST, Expected=did you not do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=DO, Subject=SING_3RD_MASC, Tense=PRESENT, Expected=does he not do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="Form=QUESTION_VERB_NEGATIVE, Verb=DO, Subject=SING_3RD_FEM, Tense=FUTURE, Expected=will she not do %s?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.0"/>
+  <testcase name="printPermutations1()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.016"/>
+  <testcase name="questionFormPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorJUnit5Test" time="0.005"/>
+  <system-out><![CDATA[--- VERB: SEE ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[SEE/PAST] - [STATEMENT_POSITIVE]:
+    I saw it
+    You saw it
+    He saw it
+    She saw it
+    We saw it
+    You(pl) saw it
+    They saw it
+Verb/Tense[SEE/PRESENT] - [STATEMENT_POSITIVE]:
+    I see it
+    You see it
+    He sees it
+    She sees it
+    We see it
+    You(pl) see it
+    They see it
+--- VERB: FIND ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[FIND/PAST] - [STATEMENT_POSITIVE]:
+    I found it
+    You found it
+    He found it
+    She found it
+    We found it
+    You(pl) found it
+    They found it
+Verb/Tense[FIND/PRESENT] - [STATEMENT_POSITIVE]:
+    I find it
+    You find it
+    He finds it
+    She finds it
+    We find it
+    You(pl) find it
+    They find it
+--- VERB: FILL ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[FILL/PAST] - [STATEMENT_POSITIVE]:
+    I filled it
+    You filled it
+    He filled it
+    She filled it
+    We filled it
+    You(pl) filled it
+    They filled it
+Verb/Tense[FILL/PRESENT] - [STATEMENT_POSITIVE]:
+    I fill it
+    You fill it
+    He fills it
+    She fills it
+    We fill it
+    You(pl) fill it
+    They fill it
+--- VERB: PUT ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[PUT/PAST] - [STATEMENT_POSITIVE]:
+    I put it
+    You put it
+    He put it
+    She put it
+    We put it
+    You(pl) put it
+    They put it
+Verb/Tense[PUT/PRESENT] - [STATEMENT_POSITIVE]:
+    I put it
+    You put it
+    He puts it
+    She puts it
+    We put it
+    You(pl) put it
+    They put it
+--- VERB: GO ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[GO/PAST] - [STATEMENT_POSITIVE]:
+    I went to it
+    You went to it
+    He went to it
+    She went to it
+    We went to it
+    You(pl) went to it
+    They went to it
+Verb/Tense[GO/PRESENT] - [STATEMENT_POSITIVE]:
+    I go to it
+    You go to it
+    He goes to it
+    She goes to it
+    We go to it
+    You(pl) go to it
+    They go to it
+--- VERB: MAKE ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[MAKE/PAST] - [STATEMENT_POSITIVE]:
+    I made it
+    You made it
+    He made it
+    She made it
+    We made it
+    You(pl) made it
+    They made it
+Verb/Tense[MAKE/PRESENT] - [STATEMENT_POSITIVE]:
+    I make it
+    You make it
+    He makes it
+    She makes it
+    We make it
+    You(pl) make it
+    They make it
+--- VERB: DO ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[DO/PAST] - [STATEMENT_POSITIVE]:
+    I did it
+    You did it
+    He did it
+    She did it
+    We did it
+    You(pl) did it
+    They did it
+Verb/Tense[DO/PRESENT] - [STATEMENT_POSITIVE]:
+    I do it
+    You do it
+    He does it
+    She does it
+    We do it
+    You(pl) do it
+    They do it
+--- VERB: GET ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[GET/PAST] - [STATEMENT_POSITIVE]:
+    I got it
+    You got it
+    He got it
+    She got it
+    We got it
+    You(pl) got it
+    They got it
+Verb/Tense[GET/PRESENT] - [STATEMENT_POSITIVE]:
+    I get it
+    You get it
+    He gets it
+    She gets it
+    We get it
+    You(pl) get it
+    They get it
+--- VERB: LOOK ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[LOOK/PAST] - [STATEMENT_POSITIVE]:
+    I at it
+    You at it
+    He at it
+    She at it
+    We at it
+    You(pl) at it
+    They at it
+Verb/Tense[LOOK/PRESENT] - [STATEMENT_POSITIVE]:
+    I look it
+    You look it
+    He looks it
+    She looks it
+    We look it
+    You(pl) look it
+    They look it
+--- VERB: GATHER ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[GATHER/PAST] - [STATEMENT_POSITIVE]:
+    I gathered it
+    You gathered it
+    He gathered it
+    She gathered it
+    We gathered it
+    You(pl) gathered it
+    They gathered it
+Verb/Tense[GATHER/PRESENT] - [STATEMENT_POSITIVE]:
+    I gather it
+    You gather it
+    He gathers it
+    She gathers it
+    We gather it
+    You(pl) gather it
+    They gather it
+--- VERB: COME ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[COME/PAST] - [STATEMENT_POSITIVE]:
+    I came to it
+    You came to it
+    He came to it
+    She came to it
+    We came to it
+    You(pl) came to it
+    They came to it
+Verb/Tense[COME/PRESENT] - [STATEMENT_POSITIVE]:
+    I come to it
+    You come to it
+    He comes to it
+    She comes to it
+    We come to it
+    You(pl) come to it
+    They come to it
+--- VERB: LEAVE ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[LEAVE/PAST] - [STATEMENT_POSITIVE]:
+    I left it
+    You left it
+    He left it
+    She left it
+    We left it
+    You(pl) left it
+    They left it
+Verb/Tense[LEAVE/PRESENT] - [STATEMENT_POSITIVE]:
+    I leave it
+    You leave it
+    He leaves it
+    She leaves it
+    We leave it
+    You(pl) leave it
+    They leave it
+--- VERB: GIVE ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[GIVE/PAST] - [STATEMENT_POSITIVE]:
+    I gave it
+    You gave it
+    He gave it
+    She gave it
+    We gave it
+    You(pl) gave it
+    They gave it
+Verb/Tense[GIVE/PRESENT] - [STATEMENT_POSITIVE]:
+    I give it
+    You give it
+    He gives it
+    She gives it
+    We give it
+    You(pl) give it
+    They give it
+--- VERB: BEGIN ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[BEGIN/PAST] - [STATEMENT_POSITIVE]:
+    I began it
+    You began it
+    He began it
+    She began it
+    We began it
+    You(pl) began it
+    They began it
+Verb/Tense[BEGIN/PRESENT] - [STATEMENT_POSITIVE]:
+    I begin it
+    You begin it
+    He begins it
+    She begins it
+    We begin it
+    You(pl) begin it
+    They begin it
+--- VERB: BE ---
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[BE/PAST] - [STATEMENT_POSITIVE]:
+    I was it
+    You were it
+    He was it
+    She was it
+    We were it
+    You(pl) were it
+    They were it
+Verb/Tense[BE/PRESENT] - [STATEMENT_POSITIVE]:
+    I am it
+    You are it
+    He is it
+    She is it
+    We are it
+    You(pl) are it
+    They are it
+Num. permutations=210
+--- VERB: SEE ---
+--- FORM: QUESTION_VERB_POSITIVE ---
+Verb/Tense[SEE/CONDITIONAL] - [QUESTION_VERB_POSITIVE]:
+    Would I see it?
+    Would you see it?
+    Would he see it?
+    Would she see it?
+    Would we see it?
+    Would you(pl) see it?
+    Would they see it?
+Verb/Tense[SEE/FUTURE] - [QUESTION_VERB_POSITIVE]:
+    Will I see it?
+    Will you see it?
+    Will he see it?
+    Will she see it?
+    Will we see it?
+    Will you(pl) see it?
+    Will they see it?
+Verb/Tense[SEE/PRESENT] - [QUESTION_VERB_POSITIVE]:
+    Do I see it?
+    Do you see it?
+    Does he see it?
+    Does she see it?
+    Do we see it?
+    Do you(pl) see it?
+    Do they see it?
+Verb/Tense[SEE/PAST] - [QUESTION_VERB_POSITIVE]:
+    Did I see it?
+    Did you see it?
+    Did he see it?
+    Did she see it?
+    Did we see it?
+    Did you(pl) see it?
+    Did they see it?
+--- FORM: QUESTION_VERB_NEGATIVE ---
+Verb/Tense[SEE/CONDITIONAL] - [QUESTION_VERB_NEGATIVE]:
+    Would I not see it?
+    Would you not see it?
+    Would he not see it?
+    Would she not see it?
+    Would we not see it?
+    Would you(pl) not see it?
+    Would they not see it?
+Verb/Tense[SEE/FUTURE] - [QUESTION_VERB_NEGATIVE]:
+    Will I not see it?
+    Will you not see it?
+    Will he not see it?
+    Will she not see it?
+    Will we not see it?
+    Will you(pl) not see it?
+    Will they not see it?
+Verb/Tense[SEE/PRESENT] - [QUESTION_VERB_NEGATIVE]:
+    Do I not see it?
+    Do you not see it?
+    Does he not see it?
+    Does she not see it?
+    Do we not see it?
+    Do you(pl) not see it?
+    Do they not see it?
+Verb/Tense[SEE/PAST] - [QUESTION_VERB_NEGATIVE]:
+    Did I not see it?
+    Did you not see it?
+    Did he not see it?
+    Did she not see it?
+    Did we not see it?
+    Did you(pl) not see it?
+    Did they not see it?
+--- FORM: STATEMENT_NEGATIVE ---
+Verb/Tense[SEE/CONDITIONAL] - [STATEMENT_NEGATIVE]:
+    I would not see it
+    You would not see it
+    He would not see it
+    She would not see it
+    We would not see it
+    You(pl) would not see it
+    They would not see it
+Verb/Tense[SEE/FUTURE] - [STATEMENT_NEGATIVE]:
+    I will not see it
+    You will not see it
+    He will not see it
+    She will not see it
+    We will not see it
+    You(pl) will not see it
+    They will not see it
+Verb/Tense[SEE/PRESENT] - [STATEMENT_NEGATIVE]:
+    I do not see it
+    You do not see it
+    He does not see it
+    She does not see it
+    We do not see it
+    You(pl) do not see it
+    They do not see it
+Verb/Tense[SEE/PAST] - [STATEMENT_NEGATIVE]:
+    I did not see it
+    You did not see it
+    He did not see it
+    She did not see it
+    We did not see it
+    You(pl) did not see it
+    They did not see it
+--- FORM: STATEMENT_POSITIVE ---
+Verb/Tense[SEE/CONDITIONAL] - [STATEMENT_POSITIVE]:
+    I would see it
+    You would see it
+    He would see it
+    She would see it
+    We would see it
+    You(pl) would see it
+    They would see it
+Verb/Tense[SEE/FUTURE] - [STATEMENT_POSITIVE]:
+    I will see it
+    You will see it
+    He will see it
+    She will see it
+    We will see it
+    You(pl) will see it
+    They will see it
+Verb/Tense[SEE/PRESENT] - [STATEMENT_POSITIVE]:
+    I see it
+    You see it
+    He sees it
+    She sees it
+    We see it
+    You(pl) see it
+    They see it
+Verb/Tense[SEE/PAST] - [STATEMENT_POSITIVE]:
+    I saw it
+    You saw it
+    He saw it
+    She saw it
+    We saw it
+    You(pl) saw it
+    They saw it
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -189,13 +189,13 @@ public enum Verb {
     }
 
     private String getPresentTenseExtension(String root) {
-        switch(root.charAt(root.length() - 1)) {
+        return switch (root.charAt(root.length() - 1)) {
             case 'h':
             case 'o':
-                return "es";
+                yield "es";
             default:
-                return "s";
-        }
+                yield "s";
+        };
     }
 
 

@@ -18,86 +18,85 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import static ck.apps.leabharcleachtadh.sentencegenerator.IrregularConj.array;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.params.provider.ObjectArrayArguments.create;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm.*;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.Subject.*;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.Tense.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 class SentenceGeneratorJUnit5Test {
 
     static Stream<Arguments> inputsAndExpectations() {
         return Stream.of(
-                create(STATEMENT_POSITIVE, Verb.BE, SING_1ST, PRESENT, "i am %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_2ND, PRESENT, "you are %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_3RD_MASC, PRESENT, "he is %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_3RD_FEM, PRESENT, "she is %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_1ST, PRESENT, "we are %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_2ND, PRESENT, "you(pl) are %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_3RD, PRESENT, "they are %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_1ST, PRESENT, "i am %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_2ND, PRESENT, "you are %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_3RD_MASC, PRESENT, "he is %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_3RD_FEM, PRESENT, "she is %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_1ST, PRESENT, "we are %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_2ND, PRESENT, "you(pl) are %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_3RD, PRESENT, "they are %s"),
 
-                create(STATEMENT_NEGATIVE, Verb.BE, SING_1ST, PRESENT, "i am not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, SING_2ND, PRESENT, "you are not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, SING_3RD_MASC, PRESENT, "he is not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, SING_3RD_FEM, PRESENT, "she is not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, PLURAL_1ST, PRESENT, "we are not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, PLURAL_2ND, PRESENT, "you(pl) are not %s"),
-                create(STATEMENT_NEGATIVE, Verb.BE, PLURAL_3RD, PRESENT, "they are not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, SING_1ST, PRESENT, "i am not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, SING_2ND, PRESENT, "you are not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, SING_3RD_MASC, PRESENT, "he is not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, SING_3RD_FEM, PRESENT, "she is not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, PLURAL_1ST, PRESENT, "we are not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, PLURAL_2ND, PRESENT, "you(pl) are not %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.BE, PLURAL_3RD, PRESENT, "they are not %s"),
 
-                create(QUESTION_VERB_POSITIVE, Verb.BE, SING_1ST, PRESENT, "am I %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, SING_2ND, PRESENT, "are you %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, SING_3RD_MASC, PRESENT, "is he %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, SING_3RD_FEM, PRESENT, "is she %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_1ST, PRESENT, "are we %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_2ND, PRESENT, "are you(pl) %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_3RD, PRESENT, "are they %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, SING_1ST, PRESENT, "am I %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, SING_2ND, PRESENT, "are you %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, SING_3RD_MASC, PRESENT, "is he %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, SING_3RD_FEM, PRESENT, "is she %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_1ST, PRESENT, "are we %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_2ND, PRESENT, "are you(pl) %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.BE, PLURAL_3RD, PRESENT, "are they %s?"),
 
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, SING_1ST, PRESENT, "am i not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, SING_2ND, PRESENT, "are you not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, SING_3RD_MASC, PRESENT, "is he not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, SING_3RD_FEM, PRESENT, "is she not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_1ST, PRESENT, "are we not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_2ND, PRESENT, "are you(pl) not %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_3RD, PRESENT, "are they not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, SING_1ST, PRESENT, "am i not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, SING_2ND, PRESENT, "are you not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, SING_3RD_MASC, PRESENT, "is he not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, SING_3RD_FEM, PRESENT, "is she not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_1ST, PRESENT, "are we not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_2ND, PRESENT, "are you(pl) not %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.BE, PLURAL_3RD, PRESENT, "are they not %s?"),
 
-                create(STATEMENT_POSITIVE, Verb.BE, SING_1ST, PAST, "i was %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_2ND, PAST, "you were %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_3RD_MASC, PAST, "he was %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, SING_3RD_FEM, PAST, "she was %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_1ST, PAST, "we were %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_2ND, PAST, "you(pl) were %s"),
-                create(STATEMENT_POSITIVE, Verb.BE, PLURAL_3RD, PAST, "they were %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_1ST, PAST, "i was %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_2ND, PAST, "you were %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_3RD_MASC, PAST, "he was %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, SING_3RD_FEM, PAST, "she was %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_1ST, PAST, "we were %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_2ND, PAST, "you(pl) were %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.BE, PLURAL_3RD, PAST, "they were %s"),
 
-                create(STATEMENT_POSITIVE, Verb.MAKE, SING_2ND, PAST, "you made %s"),
-                create(STATEMENT_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "he makes %s"),
-                create(STATEMENT_POSITIVE, Verb.MAKE, SING_2ND, FUTURE, "you will make %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.MAKE, SING_2ND, PAST, "you made %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "he makes %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.MAKE, SING_2ND, FUTURE, "you will make %s"),
 
-                create(STATEMENT_NEGATIVE, Verb.MAKE, SING_2ND, PAST, "you did not make %s"),
-                create(STATEMENT_NEGATIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "he does not make %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.MAKE, SING_2ND, PAST, "you did not make %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "he does not make %s"),
 
-                create(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_2ND, PAST, "did you make %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "does he make %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "will she make %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_2ND, PAST, "did you make %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "does he make %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "will she make %s?"),
 
-                create(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_2ND, PAST, "did you not make %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "does he not make %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "will she not make %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_2ND, PAST, "did you not make %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "does he not make %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "will she not make %s?"),
 
-                create(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "she does %s"),
-                create(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PAST, "she did %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "she does %s"),
+                Arguments.of(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PAST, "she did %s"),
 
-                create(STATEMENT_NEGATIVE, Verb.DO, SING_3RD_FEM, PRESENT, "she does not do %s"),
-                create(STATEMENT_NEGATIVE, Verb.DO, SING_3RD_FEM, PAST, "she did not do %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.DO, SING_3RD_FEM, PRESENT, "she does not do %s"),
+                Arguments.of(STATEMENT_NEGATIVE, Verb.DO, SING_3RD_FEM, PAST, "she did not do %s"),
 
-                create(QUESTION_VERB_POSITIVE, Verb.DO, SING_2ND, PAST, "did you do %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.DO, SING_3RD_MASC, PRESENT, "does he do %s?"),
-                create(QUESTION_VERB_POSITIVE, Verb.DO, SING_3RD_FEM, FUTURE, "will she do %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.DO, SING_2ND, PAST, "did you do %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.DO, SING_3RD_MASC, PRESENT, "does he do %s?"),
+                Arguments.of(QUESTION_VERB_POSITIVE, Verb.DO, SING_3RD_FEM, FUTURE, "will she do %s?"),
 
-                create(QUESTION_VERB_NEGATIVE, Verb.DO, SING_2ND, PAST, "did you not do %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.DO, SING_3RD_MASC, PRESENT, "does he not do %s?"),
-                create(QUESTION_VERB_NEGATIVE, Verb.DO, SING_3RD_FEM, FUTURE, "will she not do %s?")
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.DO, SING_2ND, PAST, "did you not do %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.DO, SING_3RD_MASC, PRESENT, "does he not do %s?"),
+                Arguments.of(QUESTION_VERB_NEGATIVE, Verb.DO, SING_3RD_FEM, FUTURE, "will she not do %s?")
 //                ,
 
 //                create(STATEMENT_POSITIVE, Verb.LOOK_AT, SING_3RD_FEM, PRESENT, "she look_ats %s"),
@@ -106,7 +105,7 @@ class SentenceGeneratorJUnit5Test {
     }
 
     @ParameterizedTest(name = "Form={0}, Verb={1}, Subject={2}, Tense={3}, Expected={4}")
-    @MethodSource(names = "inputsAndExpectations")
+    @MethodSource("inputsAndExpectations")
     void generateTenses(SentenceForm form, Verb verb, Subject subject, Tense tense, String expected) {
         String object = "the thing";
         String sentence = Sentence.toSentence(VerbUsage.usage(form, verb, subject, tense, object));

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-23T20:18:39.515Z" hostname="Cathals-MacBook-Air.local" time="0.013">
+  <properties/>
+  <testcase name="parse_dean_past_statement_positive_sg3_feminine_subject()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_teigh_past_question_negative_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.003"/>
+  <testcase name="parse_dean_past_statement_positive_pl1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.001"/>
+  <testcase name="parse_dean_past_statement_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_dean_past_statement_negative_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_dean_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_faigh_present_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

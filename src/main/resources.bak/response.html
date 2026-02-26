@@ -1,0 +1,842 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ga" lang="ga">
+<head>
+<!-- META TAGS -->
+<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
+<meta name="keywords" content="Synthesiser, synthesizer, Irish language, sintéiseoir Gaeilge, Gaeilge, CLCS, Trinity College, Dublin, Baile Átha Cliath, Coláiste na Tríonóide, múinteoirí Gaeilge, Gaeilge sa rang, Irish language teaching, Ulster Irish, Connemara Irish, Munster Irish, Gaeilge Ulaidh, Gaeilge Chonamara, Gaeilge na Mumhan, digital tools, uirlisí digiteacha, teagasc na Gaeilge, learners, foghlaimeoir, foghlaimeoirí, Irish dialects, canúintí na Gaeilge, canúint, dialect, minority language, minority languages, mionteanga, mionteangacha, celtic languages, teangacha ceilteacha, phonetics, foghraíocht, text-to-speech" /> 
+<meta name="description" content="Irish language synthesiser, Sintéiseoir Gaeilge" /> 
+<meta name="author" content="An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC" /> 
+<meta name="robots" content="all" /> 
+<meta name="Rating" content="General" /> 
+<meta name="DC.Title" content="abair.ie - An Sintéiseoir Gaeilge" /> 
+<meta name="DC.Creator" content="An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC" /> 
+<meta name="DC.Publisher" content="An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC" /> 
+<meta name="DC.Format" content="text/xhtml" /> 
+<meta name="DC.Rights" content ="(c) An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC. All rights reserved." /> 
+<meta name="DC.Copyright" content="(c) An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC. All rights reserved." /> 
+<meta name="DC.Coverage" content="Ireland" /> 
+<meta name="DC.Source" content="An tSaotharlann Foghraíochta agus Urlabhra, Scoil na nEolaíochtaí Teangeolaíochta, Urlabhra agus Cumarsáide, Coláiste na Tríonóide BÁC" /> 
+<meta name="DC.Language" content="ga" />
+<!-- END META TAGS -->
+
+<!-- ICONS AND SEARCH -->
+
+<link rel="search" type="application/opensearchdescription+xml" title="abair.ie" href="http://www.abair.ie/abair.ie.opensearch.xml"/> 
+<link rel="shortcut icon" href="http://www.abair.ie/v2/cw_test/graphics/favicon.ico" type="image/x-icon"/> 
+
+<!-- SHEETS AND SCRIPTS -->
+
+<link rel="stylesheet" href="resources/Refresh.css" type="text/css" /> 
+<link rel="stylesheet" href="stylesheets/main.css" type="text/css" />
+
+<!-- <link rel="stylesheet" type="text/css" href="resources/inlineplayer.css" />
+<script type="text/javascript" src="resources/soundmanager2.js"></script>
+-->
+<!-- HB 151028 setAutoplay is defined in inlineplayer -->
+<!--<script type="text/javascript" src="resources/inlineplayer.js"></script> -->
+<script type="text/javascript" src="resources/menu.js"></script>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/bookstyle.css" />
+<script src="resources/stories.js" type="text/javascript"></script>
+<script src="resources/player.js" type="text/javascript"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4653017-2', 'tcd.ie');
+  ga('send', 'pageview');
+
+</script>
+<!-- END google analytics -->
+
+
+
+<script language="javascript" type="text/javascript">
+
+function limitText(limitField, limitCount, limitNum) {
+  if (limitField.value.length > limitNum) {
+    limitField.value = limitField.value.substring(0, limitNum);
+    limitCount.value = limitNum;
+  } else {
+    limitCount.value = limitNum - limitField.value.length;
+  }
+}
+
+</script>
+
+<title>abair.ie – An Sintéiseoir Gaeilge</title>
+
+<!-- Piwik (HB testing 170419) -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//phoneticsrv3.lcs.tcd.ie/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+
+</head>
+<!-- <body onload="setFocus(document.getElementById('input-textarea'));adjustPosition('synthesis');adjustBrowser();setAutoplay('synthesis'); "> -->
+<body onload="setFocus(document.getElementById('input-textarea'));adjustPosition('synthesis');adjustBrowser();setAutoplay('synthesis'); ">
+
+<!-- TRINITY COLLEGE HEADER -->
+<!--
+<link rel="search" href="//www.tcd.ie/assets/xml/tcd-opensearch/tcd-opensearch.xml" title="Trinity College Dublin" type="application/opensearchdescription+xml" /><link rel="shortcut icon"  href="//www.tcd.ie/favicon.ico?v=3" type="image/x-icon" />
+
+<link rel="stylesheet" href="//www.tcd.ie/assets/php/tcd-header-footer/2013e-ghp/styles.css?v=14" type="text/css" />
+<link rel="stylesheet" href="//www.tcd.ie/assets/php/tcd-search/1/styles.css" media="all" />
+<link href="//www.tcd.ie/assets/js/jquery-royalslider/9.2/royalslider.css" rel="stylesheet" />
+<link href="//www.tcd.ie/assets/js/jquery-royalslider/9.2/rs-minimal-white.css" rel="stylesheet" />
+<link href="//www.tcd.ie/assets/js/jquery-royalslider/9.2/rs-default-inverted.css" rel="stylesheet" />
+<link href="//www.tcd.ie/assets/js/jquery-royalslider/9.2/rs-default.css" rel="stylesheet" />
+<link href="//www.tcd.ie/assets/js/jquery-royalslider/9.2/rs-trinity-theme.css" rel="stylesheet" />
+
+
+<link href="//www.tcd.ie/tms/2/t/trinity-theme-2014/css.php?cache=16&amp;site_index_key=%2Findex.php" media="all" rel="Stylesheet" />
+<link href="//www.tcd.ie/tms/2/t/ghp-20150930/css.php?cache=18&amp;site_index_key=%2Findex.php" media="all" rel="Stylesheet" />
+
+
+<script src="//www.tcd.ie/tms/2/t/trinity-theme-2014/js.php?cache=6&amp;site_index_key=%2Findex.php"></script>
+<script src="//www.tcd.ie/tms/2/t/ghp-20150930/js.php?cache=10&amp;site_index_key=%2Findex.php"></script>
+
+
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,700,700italic,400italic,300,300italic' rel='stylesheet' type='text/css' />
+
+
+<link href='//fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<div class="tcd-header">
+  <div class="tcd-header-inner">
+    <div class="tcd-header-inner2"> <a class="tcd-skip" href="#main-content">Skip to main content</a>
+      <h2><a href="//www.tcd.ie"><span class="tcdhomelink-tcdheader">Trinity College Dublin, The University of Dublin<span></span></span></a></h2>
+      <div class="tcd-header-section">
+        <p class="tcd-header-toggles"><a class="tcd-header-toggle tcd-header-toggle-menu" href="#tcd-header-panel-menu"><img src="//www.tcd.ie/assets/php/tcd-header-footer/2013/img/menu.jpg" alt="Menu"></a> <a class="tcd-header-toggle tcd-header-toggle-search" href="#tcd-header-panel-search"><img src="//www.tcd.ie/assets/php/tcd-header-footer/2013/img/search.jpg" alt="Search"></a></p>
+        <div style="" id="tcd-header-panel-search" class="tcd-header-panel tcd-header-panel-search">
+          <div class="tcd-header-panel-inner">
+            <h3>Trinity Search</h3>
+            
+<div class="tcd-search-app tcd-search-app-form tcd-search-app-q-unfocussed" data-tcd-search-app-id="0">
+<form method="get" action="//www.tcd.ie/search/q/" accept-charset="utf-8">
+    <div class="tcd-search-app-box">
+        <div class="tcd-search-app-box-inner">
+             <span class="tcd-search-app-label-wrap"><label for="tcd-search-app-q1">Your query</label></span><span class="tcd-search-app-q-wrap"><input name="tcdsearchq" id="tcd-search-app-q1" placeholder="Search All Trinity" value="" type="search"></span><span class="tcd-search-app-reset-wrap"><span class="tcd-search-app-reset"></span></span><span class="tcd-search-app-collection-wrap"><span class="tcd-search-app-collection"><span></span></span><label for="tcdsearchcollection1">Search collection</label><select name="tcdsearchcollection" id="tcdsearchcollection1"><option selected="selected" value="alltcd">All Trinity</option><option value="undergraduatecourses">Undergraduate Courses</option><option value="postgraduatecourses">Postgraduate Courses</option><option value="people">Staff</option><option value="az">AZ of Trinity Areas</option><option value="collegemaps">Trinity Maps</option><option value="researchthemes">Research Expertise</option><option value="stellacatalogue">Library Catalogue</option><option value="tara">TARA Research Archive</option></select><input name="tcdsearchpage" value="1" type="hidden"></span><span class="tcd-search-app-submit-wrap"><input value="Go" type="submit"></span>
+        </div>
+    </div>
+</form>
+</div>
+          </div>
+        </div>
+        <div style="" id="tcd-header-panel-menu" class="tcd-header-panel tcd-header-panel-menu">
+          <div class="tcd-header-panel-inner">
+            <div class="tcd-header-menu">
+              <h3>Trinity Menu</h3>
+              <ul>
+                <li><a href="//www.tcd.ie/structure/"><span>Faculties and Schools</span></a></li>
+                <li><a href="//www.tcd.ie/courses/"><span><span class="tcd-header-footer-visually-hidden">Trinity </span>Courses</span></a></li>
+                <li><a href="//www.tcd.ie/research/"><span><span class="tcd-header-footer-visually-hidden">Trinity </span>Research</span></a></li>
+                <li><a href="//www.tcd.ie/az/"><span>A–Z</span></a></li>
+                <li><a href="//www.tcd.ie/gaeloifig/gaeilge/index.ga.php"><span>Gaeilge</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+<div lang="ga" xml:lang="ga" class="tcd-header-slim" style="z-index:1;font-family:Verdana, Arial, Helvetica, sans-serif;position:static;display:block;float:none;width:100%;height:auto;background:#fff;border-bottom:2px solid #0e6bae;font-size:100%;line-height:1.8em;"> 
+<div style="font-family:Verdana, Arial, Helvetica, sans-serif;position:static;display:block;float:left;width:100%;height:auto;background:none;border:none;font-size:100%;line-height:1.8em;"> 
+        <div id="skip"><a href="#content-wrap">L&eacute;im go dt&iacute; an pr&iacute;omh&aacute;bhar</a></div> 
+<!--        <p style="display:none"><a href="#content-wrap">L&eacute;im go dt&iacute; an pr&iacute;omh&aacute;bhar</a> <span>&raquo;</span></p>--> 
+        <h1 style="display:block;position:static;float:left;width:auto;height:auto;background:none;border:0;margin:0;padding:5px 0 0 5px;"> 
+        	<a style="cursor:pointer;display:block;position:relative;float:none;width:354px;height:50px;background:none;border:0;margin:0;padding:0;overflow:hidden;" href="//www.tcd.ie"><!--Col&aacute;iste na Tr&iacute;on&oacute;ide, Baile &Aacute;tha Cliath--><span style="display:block;position:absolute;top:0;left:0;float:none;width:354px;height:50px;background:transparent url(//www.tcd.ie/img/tcd-logo.ga.png?v=2) top left no-repeat;"></span></a></h1> 
+                <form class="tcd-search" style="float:right;width:185px;height:32px;color:#688999;text-align:left;margin:15px 5px 0px 0;padding:0;border:0;background:none;" method="get" action="http://search.tcd.ie/search"> 
+                        <fieldset style="position:static;float:right;display:block;width:auto;height:auto;padding:0;margin:0;border:0;background:none;"> 
+                                <label for="search" class="cloak" style="display:none;">Cuardaigh CnaT, B&Aacute;C</label> 
+                                <input accesskey="s" class="box" style="position:static;float:left;width:130px;height:auto;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;line-height:normal;background:#f1f4f9;border:1px solid #b1bdc9;color:#1c598f;margin:0px;padding:4px 3px 4px 8px;vertical-align:top;" type="text" name="q" id="search" value="Cuardaigh CnaT" onfocus="if(this.value=='Cuardaigh CnaT'){this.value='';this.style.color='#54575e';this.style.background='#ffffff';}else{this.select();}" onblur="if(this.value==''){this.value='Cuardaigh CnaT';this.style.color='#54575e';this.style.background='#EDF1F8';}" /> 
+                                <input style="position:static;display:block;float:left;width:auto;height:auto;margin:0;padding:0;border:0;" type="image" src="//www.tcd.ie/img/searchButton.ga.gif" class="submit" alt="Go" value="go" /> 
+                                <input type="hidden" name="entqr" value="0" /> 
+                                <input type="hidden" name="ud" value="1" /> 
+                                <input type="hidden" name="sort" value="date:D:L:d1" /> 
+                                <input type="hidden" name="output" value="xml_no_dtd" /> 
+                                <input type="hidden" name="oe" value="UTF-8" /> 
+                                <input type="hidden" name="ie" value="ISO-8859-1" /> 
+                                <input type="hidden" name="client" value="default_frontend" /> 
+                                <input type="hidden" name="proxystylesheet" value="default_frontend" /> 
+                                <input type="hidden" name="site" value="default_collection" /> 
+                        </fieldset> 
+                </form> 
+                <div class="core-tabs" style="position:static;display:block;float:none;font-family:Verdana, Arial, Helvetica, sans-serif;line-height:normal;border:0;clear:both;"> 
+                        <ul id="core-tabs-list" style="position:static;display:inline;float:right;list-style-type:none;line-height:normal;margin:0px 5px 0 4px;padding:0;width:auto;height:auto;"> 
+                        	<li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l_sans.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie" title="Baile&nbsp;CnaT,&nbsp;B&Aacute;C"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">Baile&nbsp;CnaT,&nbsp;B&Aacute;C</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/structure" title="Tabhair cuairt ar na D&aacute;mha &amp; Scoileanna"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">D&aacute;mha&nbsp;&amp;&nbsp;Scoileanna</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/courses/" title="Brabhs&aacute;il c&uacute;rsa&iacute; CnaT, B&Aacute;C"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">C&uacute;rsa&iacute;</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/research" title="Faigh breis eolais faoin&aacute;r dtaighde"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">Taighde</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/services" title="Seirbh&iacute;s&iacute; CnaT, B&Aacute;C"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">Seirbh&iacute;s&iacute;</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/contacts" title="Sonra&iacute; teagmh&aacute;la"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">Teagmh&aacute;il</span></a></li> 
+                                <li style="position:static;display:inline;height:auto;width:auto;margin:0;padding:0;"><a style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;float:left;height:auto;width:auto;background:url(//www.tcd.ie/img/tab_l.gif) no-repeat left top;margin:0;margin-right:0px;padding:0 0 0 9px;text-decoration:none;" href="//www.tcd.ie/az" title="Liost&uacute; A-Z CnaT, B&Aacute;C"><span style="position:static;display:inline;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:x-small;font-weight:normal;font-style:normal;cursor:pointer;float:left;background:url(//www.tcd.ie/img/tab_r.gif) no-repeat right top;padding: 8px 8px 6px 0px;line-height:normal;color:#0a4e83;">A&nbsp;&ndash;&nbsp;Z</span></a></li> 
+                        </ul> 
+                </div> 
+</div> 
+<div style="clear:both;width:auto;position:static;height:auto;float:none;"></div> 
+</div>
+
+<!-- <div class="naviaid" style="display:block;border:1px solid #CACACA">
+<span onclick="enlargeFont(100);">A-</span><span style="font-size:large"
+<span onclick="enlargeFont(110);">A+</span><span style="font-size:large" onclick="enlargeFont(115);">A+</span>
+</div> -->
+<!-- END TRINITY COLLEGE HEADER --><div id="float_view">
+
+<div id="close_float_button" role="button" class="shiney_control" onclick="displayTool('float_view');"><b>X</b></div>
+
+
+
+
+</div>
+
+<!--
+      <p>
+         The requested lang was:
+         The requested view was:
+            </p>
+-->
+
+<div class="wrap">
+
+
+<div id="header">
+	<!-- <h1 id="logo-text"><a href="?page=synthesis&amp;lang=gle">abair.ie</a></h1> -->
+	<!-- <h2 id="slogan"><span class="gray">r&iacute;omhchainteoir... &nbsp; &nbsp; BETA</span></h2> -->
+
+	<div id="phonlab">
+		<a href="http://www.tcd.ie/slscs/clcs/psl/" target="_blank"><strong>An tSaotharlann Foghra&iacute;ochta agus Urlabhra</strong></a>
+	</div>
+
+	<div id="slscs">
+		<a href="http://www.tcd.ie/slscs/" target="_blank">Scoil na nEola&iacute;ochta&iacute; Teangeola&iacute;ochta, Urlabhra agus Cumars&aacute;ide<br />Coláiste na Tríonóide</a>
+	</div>
+</div>
+
+<div class='menu' id='language_selector'><ul><li class='current'><a href='?lang=gle&amp;page=synthesis&amp;synth=gd&amp;view=files&amp;speed=Gnáthluas&amp;pitch=1.0&amp;xpos=0&amp;ypos=392&amp;colors=default&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110218.xml'>Gaeilge</a></li><li ><a href='?lang=eng&amp;page=synthesis&amp;synth=gd&amp;view=files&amp;speed=Gnáthluas&amp;pitch=1.0&amp;xpos=0&amp;ypos=392&amp;colors=default&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110218.xml'>English</a></li></ul></div>
+<!-- To Do: Turn menus into links <a> -->
+
+<div class="menu" id="dropdown">
+	<ul id="dropdownlist">
+		<li id="baile"><a href="?page=synthesis&amp;lang=gle">Baile</a></li>
+                <!-- HB added onclick and a href for accessibility. -->
+		<li onclick="showElement(this)" onmouseover="showElement(this)" onmouseout="startTimer()"><a href="javascript:;">Eolas Fúinn</a>
+<!--		<li onmouseover="showElement(this)" onmouseout="startTimer()">Eolas Fúinn-->
+			<div onmouseover="killTimer()" class="menudiv">
+				<table style="z-index:999;" class="sublist" width="200" height="auto" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+					<td style="background:url(graphics/droptop.png) no-repeat;z-index:999;width:200px;height:44px;display:block;padding-left:0px;"></td>
+					</tr>
+					<tr>
+					<td><a href="?page=background&amp;lang=gle">Cúlra</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=people&amp;lang=gle">An Fhoireann</a></td>
+					</tr>
+					<tr>
+					<tr>
+					<td><a href="?page=news&amp;lang=gle">Nuaíocht</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=brochure&amp;lang=gle">An Bróisiúr</a></td>
+					</tr>
+					<tr>
+					<td style="background:url(graphics/dropbottom.png) no-repeat;z-index:1000;width:200px;height:28px;display:block;padding-left:0px;"></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+                <!-- HB added onclick and a href for accessibility. -->
+		<li onclick="showElement(this)" onmouseover="showElement(this)" onmouseout="startTimer()"><a href="javascript:;">Sintéis</a>
+<!--		<li onmouseover="showElement(this)" onmouseout="startTimer()">Sintéis-->
+			<div onmouseover="killTimer()" class="menudiv">
+				<table class="sublist" width="200" height="" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+					<td style="background:url(graphics/droptop.png) no-repeat;z-index:1000;width:200px;height:44px;display:block;padding-left:0px;"></td>
+					</tr>
+					<tr>
+					<td><a href="?page=info&amp;lang=gle">Cad is sintéis ann?</a></td>
+					</tr>
+					</tr>
+					<tr>
+					<td><a href="?page=useofsynthesis&amp;lang=gle">Úsáid na Sintéise</a></td>
+					</tr>
+					<!-- <tr>
+					<td>Cén fáth sintéis?</td>
+					</tr> -->
+					<tr>
+					<td><a href="?page=samples&amp;lang=gle">Samplaí</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=faq&amp;lang=gle">Ceisteanna coitianta</a></td>
+					</tr>
+					<tr>
+					<td style="background:url(graphics/dropbottom.png) no-repeat;z-index:1000;width:200px;height:60px;display:block;;padding-left:0px;"></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+                <!-- HB added onclick and a href for accessibility. -->
+		<li onclick="showElement(this)" onmouseover="showElement(this)" onmouseout="startTimer()"><a href="javascript:;">Áiseanna</a>
+<!--		<li onmouseover="showElement(this)" onmouseout="startTimer()">Áiseanna-->
+			<div onmouseover="killTimer()" class="menudiv">
+				<table class="sublist" width="200" height="" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+					<td style="background:url(graphics/droptop.png) no-repeat;z-index:1000;width:200px;height:44px;display:block;padding-left:0px;"></td>
+					</tr>
+					<tr>
+					<td><a href="?page=transcription&amp;lang=gle">Fogharscríobh</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=normalisation&amp;lang=gle">Normalú Téacs</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=partofspeech&amp;lang=gle">Clibeáil Ranna Cainte</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=learners&amp;lang=gle">Acmhainní Foghlama</a></td>
+					</tr>
+          <tr>
+					<td><a href="cabaire/?lang=gle">CabairE</a></td>
+					</tr>
+					<tr>
+					<td style="background:url(graphics/dropbottom.png) no-repeat;z-index:1000;width:200px;height:60px;display:block;;padding-left:0px;"></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+                <!-- HB added onclick and a href for accessibility. -->
+		<li onclick="showElement(this)" onmouseover="showElement(this)" onmouseout="startTimer()"><a href="javascript:;">Teagmháil</a>
+<!--		<li onmouseover="showElement(this)" onmouseout="startTimer()">Teagmháil-->
+			<div onmouseover="killTimer()" class="menudiv">
+				<table class="sublist" width="200" height="" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+					<td style="background:url(graphics/droptop.png) no-repeat;z-index:1000;width:200px;height:44px;display:block;padding-left:0px;"></td>
+					</tr>
+					<tr>
+					<td><a href="?page=contact&amp;lang=gle">Seoltaí</a></td>
+					</tr>
+					<tr>
+					<td><a href="?page=feedback&amp;lang=gle">Aiseolas</a></td>
+					</tr>
+					<tr>
+					<td style="background:url(graphics/dropbottom.png) no-repeat;z-index:1000;width:200px;height:60px;display:block;;padding-left:0px;"></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+    
+    <li onclick="showElement(this)" onmouseover="showElement(this)" onmouseout="startTimer()"><a href="javascript:;">Rochtain</a>
+<!--		<li onmouseover="showElement(this)" onmouseout="startTimer()">Teagmháil-->
+			<div onmouseover="killTimer()" class="menudiv">
+				<table class="sublist" width="200" height="" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+            <td style="background:url(graphics/droptop.png) no-repeat;z-index:1000;width:200px;height:44px;display:block;padding-left:0px;"></td>
+					</tr>
+          <tr>
+            <td><a href="/nvda/">Breiseán NVDA</a></td>
+					</tr>
+          <tr>
+            <td><a href="/apps/">Léitheoir Gréasáin</a></td>
+					</tr>
+					<tr>
+            <td><a href="?page=access_abair_site&amp;lang=gle">Treoracha</a></td>
+					</tr>
+					<tr>
+            <td style="background:url(graphics/dropbottom.png) no-repeat;z-index:1000;width:200px;height:60px;display:block;;padding-left:0px;"></td>
+					</tr>
+				</table>
+			</div>
+		</li>
+    
+    <li><a href="/nvda/">Breiseán NVDA</a></li>
+    
+	</ul>
+</div>
+
+<!-- <div id="dropdown">
+
+<div class="left-box">
+   <ul class="sidemenu">
+	<li class="currentpage"><a href="?page=synthesis&amp;lang=gle">Abair &eacute;!</a></li>
+	<li><a href="?page=news&amp;lang=gle">Nuacht</a></li>
+	<li><a href="?page=background&amp;lang=gle">C&uacute;lra</a></li>
+	<li><a href="?page=info&amp;lang=gle">Cad is sint&eacute;is ann?</a></li>
+	<li><a href="?page=people&amp;lang=gle">Foireann</a></li>
+	<li><a href="?page=contact&amp;lang=gle">Teagmh&aacute;il</a></li>
+	<li><a href="?page=faq&amp;lang=gle">Ceisteanna coitianta</a></li>
+	<li><a href="?page=samples&amp;lang=gle">Éist le sintéis shamplach</a></li>
+	<li><a href="?page=feedback&amp;lang=gle">Aiseolas</a></li>
+   </ul>
+</div>
+
+</div> -->
+
+<div id="content-wrap">
+
+
+
+<div class="main">
+
+
+<!-- <h1>Abair &eacute;!</h1>
+<p>
+Tionta&iacute;onn s&eacute; seo focail scr&iacute;ofa go hurlabhra.
+</p> -->
+
+<div id="intro">
+<!-- Temporary World Voice Day link -->
+<!--
+<a href="https://heanet.vscene.jisc.ac.uk/jsp/cs/cs000.jsp?STREAM_URL_PATH=AP00249924">
+<h1>Lá Domhanda an Ghlóir i gColáiste na Tríonóide</h1>
+<h2>Dé Máirt 11 Aibreán, 17:15</h2>
+</a>
+-->
+	<h1>Fáilte go abair.ie – An Sintéiseoir Gaeilge</h1>
+	<p>
+		<i>An Focal Scríofa go Caint Bheo!</i>
+	</p>
+</div>
+
+
+
+<center>
+<div class='menuSelector' id='synth_selector'><ul><li class='current'><a href='?synth=gd&amp;lang=gle&amp;page=synthesis&amp;submit=true&amp;view=files&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>Gaoth Dobhair</a></li><li ><a href='?synth=ga_UL_anb_exthts&amp;lang=gle&amp;page=synthesis&amp;submit=true&amp;view=files&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>Gaoth Dobhair HTS</a></li><li ><a href='?synth=cm_V2&amp;lang=gle&amp;page=synthesis&amp;submit=true&amp;view=files&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>Conamara</a></li><li ><a href='?synth=hts&amp;lang=gle&amp;page=synthesis&amp;submit=true&amp;view=files&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>Conamara HTS</a></li><li ><a href='?synth=ga_MU_nnc_exthts&amp;lang=gle&amp;page=synthesis&amp;submit=true&amp;view=files&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>Corca Dhuibhne HTS</a></li><li><a href="javascript:;" style="cursor:pointer;" onclick="fillInfoBubble('Explain US gle', 'info_view');showInfoBubble(this, document.getElementById('synth_selector'), 'info_view');">Eolas</a></li>
+</ul>
+</div><!-- End view_selector --><div class='menuView' id='view_selector'><ul><li ><a href='?view=listen&amp;lang=gle&amp;page=synthesis&amp;synth=gd&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>éist</a></li><li class='current'><a href='?view=files&amp;lang=gle&amp;page=synthesis&amp;synth=gd&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>íoslódáil</a></li><li ><a href='?view=words&amp;lang=gle&amp;page=synthesis&amp;synth=gd&amp;xpos=0&amp;ypos=392&amp;speed=Gnáthluas&amp;pitch=1.0&amp;input=An+gceann%C3%B3idh+siad+carr+nua%3F&amp;xmlfile=20170528_110519.xml&amp;colors=default'>fogharscríobh</a></li>
+</ul>
+</div><!-- End view_selector -->
+</center>
+
+<div class="application">
+
+<!-- Moved this into application DIV -->
+<center>
+
+
+<div onmouseover='swapMap(this, "map_gd", true, "gle")' onmouseout='swapMap(this, "map_gd", false, "gle")' id='map' class='map_gd'></div>
+
+<!-- Contains map of Ireland -->
+</center>
+<!-- End DIV map -->
+
+<center>
+<!-- //onsubmit="return validateDemoText();" -->
+<form 
+
+  onsubmit="promptNoText('Cuir téacs isteach ar dtús, le do thoil.');setScrollPosition(window.pageXOffset, window.pageYOffset, 'synthesis');"
+  name="synthesis" 
+  method="post" 
+  action=""
+  >
+
+
+
+<center>
+  <textarea id="input-textarea" placeholder="Cuir téacs isteach anseo..." onkeydown="limitText(this.form.input,this.form.countdown,2000);" onkeyup="limitText(this.form.input,this.form.countdown,2000);" name="input" rows="2" cols="20">An gceannóidh siad carr nua?</textarea>
+
+<div id="color_switch" style="position:absolute;right:0;margin-right:15px;margin-top:1px;background-color:white;color:black;padding:8px;border:1px solid #818181;border-radius:10px 0px 15px 0px;">
+
+<span style="cursor:pointer;" onclick="invertColors('input-textarea')">Dubh ina bhán</span>
+
+</div>
+
+<!--   <input id="synthesise_button" class="button" name="submit" type="submit" value="Déan sintéis" onclick="""/>-->
+<!-- HB removed empty onclick attribute, new seems to work right in ie-->
+   <input id="synthesise_button" class="button" name="submit" type="submit" value="Déan sintéis" />
+   
+
+  <input type="hidden" name="lang" value="gle" />
+  <input type="hidden" name="voice" value="" />
+  <input type="hidden" name="view" value="files" />
+  <input type="hidden" name="synth" value="gd" />
+  <input type="hidden" name="xpos" value="0" />
+  <input type="hidden" name="ypos" value="392" />
+  <input type="hidden" name="page" value="synthesis" />
+  <input type="hidden" name="xmlfile" value='20170528_110519.xml' />
+  <input id="colors_input" type="hidden" name="colors" value="default" />
+
+
+<br/>
+
+<table id="speedselector_table" width="auto" height="auto" cellspacing="10" cellpadding="5">
+	<tr>
+		<td>Luas</td>
+		<td title="Athraigh luas na habairte">
+		<select style="min-width:100px;" name="speed">
+		<option SELECTED>Gnáthluas</option>
+	<option>Níos moille</option>
+	<option>Fíormhall</option>
+	<option>Níos tapa</option>
+	<option>Ardluas</option>
+			</select>
+	</td>
+	<!-- Pitch not needed at the moment. -->
+	<!--
+		<td>Airde</td>
+		<td title="Athraigh tuinairde na habairte">
+		<select name="pitch">
+				</select>
+		</td>-->
+	</tr>
+</table>
+
+Uasmh&eacute;id na gcarachtar: <b>2000</b>. M&eacute;id carachtar f&aacute;gtha: <input id="countdown" style="text-align:center;" onload="limitText(this.form.input,this.form.countdown,2000);" readonly="readonly" type="text" name="countdown" size="4" value="1972"/>
+
+<style>
+
+#countdown {
+	border: none;
+	border-radius: 5px;
+	color: #FFF;
+	background: rgb(94,94,94); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVlNWU1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMzMzMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(94,94,94,1) 0%, rgba(51,51,51,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(94,94,94,1)), color-stop(100%,rgba(51,51,51,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(94,94,94,1) 0%,rgba(51,51,51,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(94,94,94,1) 0%,rgba(51,51,51,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(94,94,94,1) 0%,rgba(51,51,51,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(94,94,94,1) 0%,rgba(51,51,51,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#333333',GradientType=0 ); /* IE6-8 */
+
+}
+
+</style>
+<br/>
+
+<div onclick="showFada(document.getElementById('fada-list'))" class='fada-hint'><a class='fada-hint'>Cliceáil anseo le síneadh fada a chur leis.</a></div>
+<div id="fada-list">
+<ul class="fada-button">
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'á');">&aacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'é')">&eacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'í')">&iacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'ó')">&oacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'ú')">&uacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'Á')">&Aacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'É')">&Eacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'Í')">&Iacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'Ó')">&Oacute;</span></li>
+	<li><span class="fada-button" onclick="insertChar(document.synthesis.input, 'Ú')">&Uacute;</span></li>
+	<span class="fada-hint" style="" onclick="showFada(document.getElementById('fada-list'))">Folaigh</span></li>
+	<li style="font-size: 10px;">
+	<label style="color: #000; font-weight: normal; display: inline; font-size: 10px;" for="pin_fada">
+		<input id="pin_fada" type="checkbox"  name="pinFada"></input>&#09;Greamaigh	</label>
+	</li>
+</ul>
+</div>
+
+<br/>
+
+</center>
+</form>
+</center>
+<center>
+
+<div class="view"><table>
+<tr>
+<th align="left"><h2>abairt</h2></th>
+<th align="left"><h2>comhad mp3</h2></th>
+<th align="left"><h2>comhad wav</h2></th>
+</tr>
+<tr>
+<td>An gceannóidh siad carr nua?</td>
+<td><a href="http://www.abair.tcd.ie/audio/20170528_110519_001.mp3">Íoslódáil mar MP3</a></td>
+<td onclick="promptDownload('http://www.abair.tcd.ie/audio/20170528_110519_001.wav')"><a href="http://www.abair.tcd.ie/audio/20170528_110519_001.wav">Íoslódáil mar WAV</a></td>
+</tr>
+</table></div>
+
+<style>
+
+#sndfiles {
+	font: clear;
+	color: #FFF;
+}
+
+#listen_view {
+	width: 50%;
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+	padding-left: -25px;
+	border-radius: 15px;
+	border-top-left-radius: 0px;
+	border: none;
+	background: rgb(104,104,104); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY4Njg2OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMyJSIgc3RvcC1jb2xvcj0iIzIxMjEyMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzE0MTQxNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY5JSIgc3RvcC1jb2xvcj0iIzFlMWUxZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg0JSIgc3RvcC1jb2xvcj0iIzJiMmIyYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjkzJSIgc3RvcC1jb2xvcj0iIzMwMzAzMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzYTNhM2EiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(104,104,104,1) 0%, rgba(33,33,33,1) 32%, rgba(20,20,20,1) 50%, rgba(30,30,30,1) 69%, rgba(43,43,43,1) 84%, rgba(48,48,48,1) 93%, rgba(58,58,58,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(104,104,104,1)), color-stop(32%,rgba(33,33,33,1)), color-stop(50%,rgba(20,20,20,1)), color-stop(69%,rgba(30,30,30,1)), color-stop(84%,rgba(43,43,43,1)), color-stop(93%,rgba(48,48,48,1)), color-stop(100%,rgba(58,58,58,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(104,104,104,1) 0%,rgba(33,33,33,1) 32%,rgba(20,20,20,1) 50%,rgba(30,30,30,1) 69%,rgba(43,43,43,1) 84%,rgba(48,48,48,1) 93%,rgba(58,58,58,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(104,104,104,1) 0%,rgba(33,33,33,1) 32%,rgba(20,20,20,1) 50%,rgba(30,30,30,1) 69%,rgba(43,43,43,1) 84%,rgba(48,48,48,1) 93%,rgba(58,58,58,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(104,104,104,1) 0%,rgba(33,33,33,1) 32%,rgba(20,20,20,1) 50%,rgba(30,30,30,1) 69%,rgba(43,43,43,1) 84%,rgba(48,48,48,1) 93%,rgba(58,58,58,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(104,104,104,1) 0%,rgba(33,33,33,1) 32%,rgba(20,20,20,1) 50%,rgba(30,30,30,1) 69%,rgba(43,43,43,1) 84%,rgba(48,48,48,1) 93%,rgba(58,58,58,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#686868', endColorstr='#3a3a3a',GradientType=0 ); /* IE6-8 */
+
+}
+
+ul.listen_view {
+	width: 85%;
+	margin: 0 auto;
+	list-style: none;
+	color: #FFF;
+}
+
+.listen_view li {
+	color: none;
+	border: 2px solid #F1F1F1;
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 7px;
+	border-radius: 10px;
+	border-top-left-radius: 0px;
+	font-weight: bold;
+	text-align: center;
+	background: rgb(69,196,15); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ1YzQwZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyOTlhMGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(69,196,15,1) 0%, rgba(41,154,11,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,196,15,1)), color-stop(100%,rgba(41,154,11,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(69,196,15,1) 0%,rgba(41,154,11,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(69,196,15,1) 0%,rgba(41,154,11,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(69,196,15,1) 0%,rgba(41,154,11,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(69,196,15,1) 0%,rgba(41,154,11,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45c40f', endColorstr='#299a0b',GradientType=0 ); /* IE6-8 */
+	/* background: #000; */
+}
+
+.listen_view span {
+	color: #FFF;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: arial, helvetica, sans-serif;
+}
+
+#play_again {
+	border: 1px solid gray;
+	border-radius: 25px;
+	padding: 5px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+#hint_listen {
+	width: 30%;
+	min-width: 30%;
+	margin: 0 auto;
+	color: #FFF;
+	font-size: 14px;
+	padding: 5px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	background: rgb(73,155,234); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ5OWJlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMDdjZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(73,155,234,1)), color-stop(100%,rgba(32,124,229,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 ); /* IE6-8 */
+}
+
+#controls_bar {
+	width: 90%;
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+#controls_bar ul {
+	display: inline;
+	list-style: none;
+}
+
+#controls_bar ul li {
+	display: inline;
+	margin-left: 1px;
+}
+
+.player_control {
+	font-size: 12px;
+	font-weight: normal;
+	font-family: arial, helvetica, sans-serif;
+	padding: 5px;
+	/* border-radius: 10px; */
+	border: none;
+	float: bottom;
+	color: #FFF;
+	background: #000;
+	cursor: pointer;
+	background: rgb(125,126,125); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2MDYwNjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(96,96,96,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(96,96,96,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(96,96,96,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(96,96,96,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(96,96,96,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(96,96,96,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#606060',GradientType=0 ); /* IE6-8 */
+
+}
+
+</style>
+
+<style>
+#download_panel {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 15px;
+	border: 1px solid #c1c1c1;
+	border-radius: 15px;
+	padding: 5px;
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
+}
+
+#download_panel form {
+	text-align: center;
+}
+
+#download_button {
+	color: black;
+	border-radius: 25px;
+	border: 1px solid orange;
+	padding: 5px;
+	font-weight: bold;
+	right: 0px;
+}
+
+
+</style>
+
+
+<div id="download_panel" style="visibility: visible; display: block;">
+<label style="margin-bottom: -5px;" for="download_form">Íoslódáil na comhaid uile mar ZIP</label>
+<!--<form id="download_form" action="download.php" method="post">-->
+<form id="download_form" action="/download/download.php" method="post">
+	<input name="filestozip" type="hidden" value="20170528_110519_001"/>
+	<input name="sentences" type="hidden" value="An gceannóidh siad carr nua?"/>
+	<input name="dialect" type="hidden" value="gd"/>
+	<input name="currentView" type="hidden" value="files"/>
+	<input name="language" type="hidden" value="gle"/>
+	<input name="fileformat" type="radio" value="mp3" checked=""> mar MP3	<br />
+	<input name="fileformat" type="radio" value="wav"> mar WAV	<br /><br />
+	<button id="download_button" class="shiney_control" type="submit" value="download zip file">Íoslódáil</button>
+</form>
+</div>
+
+
+<p>
+
+<form id="badwords" method="post" action="/index.php">
+
+<label for="badwords">An raibh aon rud cearr?<br />Seol an focal nó an abairt a bhí aisteach, dar leat, chugainn. <br />Go raibh maith agat!</label>
+
+<input id="badword_textfield" type="text" name="badword" size="50" value="" />
+<input id="badword_submit" name="submit_badword" type="submit" value="Seol" />
+
+<input type="hidden" name="page" value="badwords" />
+<input type="hidden" name="dialect" value="gd" />
+<input type="hidden" name="sentence" value="An gceannóidh siad carr nua?" />
+
+</form>
+</p>
+</center>
+
+</div> <!-- End DIV application -->
+
+
+<div id="foras">
+<span style="color:#008500;background-color:none;">Maoinithe ag</span><br /><br /><a style="border:none;text-decoration:none;background:none;color:#000;" href="http://www.ahrrga.gov.ie//" target="_blank"><i>An Roinn<br />Ealaíon, Oidhreachta, Gnóthaí<br /> Réigiúnacha, Tuaithe agus Gaeltachta</i><br /><img style="border:none;margin-top:3px;" class="image" src="images/an_roinn_harp.png" width="43" height="68" alt="" />
+</a><!-- closes link created by script -->
+</div>
+<!-- 
+<div id="paypal" style="background:url(graphics/bgpaypal_gle.png) no-repeat;"> 
+<p></p> 
+<form class="paypal_form" action="https://www.paypal.com/cgi-bin/webscr" method="post/"> 
+<input type="hidden" name="cmd" value="_donations"> 
+<input type="hidden" name="business" value="haraldberthelsen@gmail.com"/> 
+<input type="hidden" name="lc" value="IE"/> 
+<input type="hidden" name="item_name" value="Donations to abair.ie (TEST)"/> 
+<input type="hidden" name="no_note" value="0"/> 
+<input type="hidden" name="currency_code" value="EUR"> 
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest"/> 
+<center><input style="" type="text" name="amount" value="5.00"/>
+<button type="submit">Déan!</button></center>
+<input type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> 
+<img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/scr/pixel.gif" width="1" height="1"> 
+-->
+</form>
+</div>
+
+
+
+
+</div>
+<!-- END div class="main" -->
+
+		<!--footer starts here-->
+		<div id="footer">
+
+			<div class="copyrights">
+			&copy; 2017 <strong>Tionscadal <a href="?page=background&amp;lang=gle">abair.ie</a></strong>
+			| Teagmháil: <a href="mailto:abair.tcd@gmail.com">abair.tcd@gmail.com</a> |
+
+			<!--<a href="index.html">Home</a>&nbsp;|&nbsp;
+   			<a href="index.html">Sitemap</a>&nbsp;|&nbsp;
+		   	<a href="index.html">RSS Feed</a>-->
+
+Nuashonr&uacute; is deireana&iacute;: 25/05 2017, 12:02.   			</div>
+			
+		</div>
+				
+</div>
+<!-- END div class="content-wrap" -->
+
+
+
+</div>
+<!-- END div class="wrap" -->
+
+</body>
+</html>
+
+
+

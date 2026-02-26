@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ck.apps.leabharcleachtadh.verblookup.HtmlVerbLookupTest" tests="3" skipped="3" failures="0" errors="0" timestamp="2026-02-23T20:18:39.529Z" hostname="Cathals-MacBook-Air.local" time="0.001">
+  <properties/>
+  <testcase name="parse_questions_positive()" classname="ck.apps.leabharcleachtadh.verblookup.HtmlVerbLookupTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parse_statements_positive()" classname="ck.apps.leabharcleachtadh.verblookup.HtmlVerbLookupTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parse_statements_negative()" classname="ck.apps.leabharcleachtadh.verblookup.HtmlVerbLookupTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

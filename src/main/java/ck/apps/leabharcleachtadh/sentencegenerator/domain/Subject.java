@@ -1,7 +1,7 @@
 package ck.apps.leabharcleachtadh.sentencegenerator.domain;
 
 public enum Subject {
-    SING_1ST("i", 1, 1),
+    SING_1ST("I", 1, 1),
     SING_2ND("you", 2, 1),
     SING_3RD_MASC("he", 3, 1),
     SING_3RD_FEM("she", 3, 1),

@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-23T20:18:39.488Z" hostname="Cathals-MacBook-Air.local" time="0.027">
+  <properties/>
+  <testcase name="[1] QUESTION_VERB_POSITIVE, MAKE, SING_2ND, PAST, the object, Did you make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.002"/>
+  <testcase name="[2] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_MASC, PRESENT, the object, Does he make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[3] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_FEM, FUTURE, the object, Will she make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[4] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
+  <testcase name="[5] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="showPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.018"/>
+  <testcase name="Build Permutations" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
+  <system-out><![CDATA[--- VERB: BE ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I was the object
+You were the object
+He was the object
+She was the object
+We were the object
+You(pl) were the object
+They were the object
+--- TENSE: PRESENT ---
+I am the object
+You are the object
+He is the object
+She is the object
+We are the object
+You(pl) are the object
+They are the object
+--- TENSE: FUTURE ---
+I will be the object
+You will be the object
+He will be the object
+She will be the object
+We will be the object
+You(pl) will be the object
+They will be the object
+--- TENSE: CONDITIONAL ---
+I would be the object
+You would be the object
+He would be the object
+She would be the object
+We would be the object
+You(pl) would be the object
+They would be the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Was I the object?
+Were you the object?
+Was he the object?
+Was she the object?
+Were we the object?
+Were you(pl) the object?
+Were they the object?
+--- TENSE: PRESENT ---
+Am I the object?
+Are you the object?
+Is he the object?
+Is she the object?
+Are we the object?
+Are you(pl) the object?
+Are they the object?
+--- TENSE: FUTURE ---
+Will I be the object?
+Will you be the object?
+Will he be the object?
+Will she be the object?
+Will we be the object?
+Will you(pl) be the object?
+Will they be the object?
+--- TENSE: CONDITIONAL ---
+Would I be the object?
+Would you be the object?
+Would he be the object?
+Would she be the object?
+Would we be the object?
+Would you(pl) be the object?
+Would they be the object?
+------ ------ ------
+--- VERB: BEGIN ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I began the object
+You began the object
+He began the object
+She began the object
+We began the object
+You(pl) began the object
+They began the object
+--- TENSE: PRESENT ---
+I begin the object
+You begin the object
+He begins the object
+She begins the object
+We begin the object
+You(pl) begin the object
+They begin the object
+--- TENSE: FUTURE ---
+I will begin the object
+You will begin the object
+He will begin the object
+She will begin the object
+We will begin the object
+You(pl) will begin the object
+They will begin the object
+--- TENSE: CONDITIONAL ---
+I would begin the object
+You would begin the object
+He would begin the object
+She would begin the object
+We would begin the object
+You(pl) would begin the object
+They would begin the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I begin the object?
+Did you begin the object?
+Did he begin the object?
+Did she begin the object?
+Did we begin the object?
+Did you(pl) begin the object?
+Did they begin the object?
+--- TENSE: PRESENT ---
+Do I begin the object?
+Do you begin the object?
+Does he begin the object?
+Does she begin the object?
+Do we begin the object?
+Do you(pl) begin the object?
+Do they begin the object?
+--- TENSE: FUTURE ---
+Will I begin the object?
+Will you begin the object?
+Will he begin the object?
+Will she begin the object?
+Will we begin the object?
+Will you(pl) begin the object?
+Will they begin the object?
+--- TENSE: CONDITIONAL ---
+Would I begin the object?
+Would you begin the object?
+Would he begin the object?
+Would she begin the object?
+Would we begin the object?
+Would you(pl) begin the object?
+Would they begin the object?
+------ ------ ------
+--- VERB: COME ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I came to the object
+You came to the object
+He came to the object
+She came to the object
+We came to the object
+You(pl) came to the object
+They came to the object
+--- TENSE: PRESENT ---
+I come to the object
+You come to the object
+He comes to the object
+She comes to the object
+We come to the object
+You(pl) come to the object
+They come to the object
+--- TENSE: FUTURE ---
+I will come to the object
+You will come to the object
+He will come to the object
+She will come to the object
+We will come to the object
+You(pl) will come to the object
+They will come to the object
+--- TENSE: CONDITIONAL ---
+I would come to the object
+You would come to the object
+He would come to the object
+She would come to the object
+We would come to the object
+You(pl) would come to the object
+They would come to the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I come to the object?
+Did you come to the object?
+Did he come to the object?
+Did she come to the object?
+Did we come to the object?
+Did you(pl) come to the object?
+Did they come to the object?
+--- TENSE: PRESENT ---
+Do I come to the object?
+Do you come to the object?
+Does he come to the object?
+Does she come to the object?
+Do we come to the object?
+Do you(pl) come to the object?
+Do they come to the object?
+--- TENSE: FUTURE ---
+Will I come to the object?
+Will you come to the object?
+Will he come to the object?
+Will she come to the object?
+Will we come to the object?
+Will you(pl) come to the object?
+Will they come to the object?
+--- TENSE: CONDITIONAL ---
+Would I come to the object?
+Would you come to the object?
+Would he come to the object?
+Would she come to the object?
+Would we come to the object?
+Would you(pl) come to the object?
+Would they come to the object?
+------ ------ ------
+--- VERB: DO ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I did the object
+You did the object
+He did the object
+She did the object
+We did the object
+You(pl) did the object
+They did the object
+--- TENSE: PRESENT ---
+I do the object
+You do the object
+He does the object
+She does the object
+We do the object
+You(pl) do the object
+They do the object
+--- TENSE: FUTURE ---
+I will do the object
+You will do the object
+He will do the object
+She will do the object
+We will do the object
+You(pl) will do the object
+They will do the object
+--- TENSE: CONDITIONAL ---
+I would do the object
+You would do the object
+He would do the object
+She would do the object
+We would do the object
+You(pl) would do the object
+They would do the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I do the object?
+Did you do the object?
+Did he do the object?
+Did she do the object?
+Did we do the object?
+Did you(pl) do the object?
+Did they do the object?
+--- TENSE: PRESENT ---
+Do I do the object?
+Do you do the object?
+Does he do the object?
+Does she do the object?
+Do we do the object?
+Do you(pl) do the object?
+Do they do the object?
+--- TENSE: FUTURE ---
+Will I do the object?
+Will you do the object?
+Will he do the object?
+Will she do the object?
+Will we do the object?
+Will you(pl) do the object?
+Will they do the object?
+--- TENSE: CONDITIONAL ---
+Would I do the object?
+Would you do the object?
+Would he do the object?
+Would she do the object?
+Would we do the object?
+Would you(pl) do the object?
+Would they do the object?
+------ ------ ------
+--- VERB: FIND ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I found the object
+You found the object
+He found the object
+She found the object
+We found the object
+You(pl) found the object
+They found the object
+--- TENSE: PRESENT ---
+I find the object
+You find the object
+He finds the object
+She finds the object
+We find the object
+You(pl) find the object
+They find the object
+--- TENSE: FUTURE ---
+I will find the object
+You will find the object
+He will find the object
+She will find the object
+We will find the object
+You(pl) will find the object
+They will find the object
+--- TENSE: CONDITIONAL ---
+I would find the object
+You would find the object
+He would find the object
+She would find the object
+We would find the object
+You(pl) would find the object
+They would find the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I find the object?
+Did you find the object?
+Did he find the object?
+Did she find the object?
+Did we find the object?
+Did you(pl) find the object?
+Did they find the object?
+--- TENSE: PRESENT ---
+Do I find the object?
+Do you find the object?
+Does he find the object?
+Does she find the object?
+Do we find the object?
+Do you(pl) find the object?
+Do they find the object?
+--- TENSE: FUTURE ---
+Will I find the object?
+Will you find the object?
+Will he find the object?
+Will she find the object?
+Will we find the object?
+Will you(pl) find the object?
+Will they find the object?
+--- TENSE: CONDITIONAL ---
+Would I find the object?
+Would you find the object?
+Would he find the object?
+Would she find the object?
+Would we find the object?
+Would you(pl) find the object?
+Would they find the object?
+------ ------ ------
+--- VERB: FILL ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I filled the object
+You filled the object
+He filled the object
+She filled the object
+We filled the object
+You(pl) filled the object
+They filled the object
+--- TENSE: PRESENT ---
+I fill the object
+You fill the object
+He fills the object
+She fills the object
+We fill the object
+You(pl) fill the object
+They fill the object
+--- TENSE: FUTURE ---
+I will fill the object
+You will fill the object
+He will fill the object
+She will fill the object
+We will fill the object
+You(pl) will fill the object
+They will fill the object
+--- TENSE: CONDITIONAL ---
+I would fill the object
+You would fill the object
+He would fill the object
+She would fill the object
+We would fill the object
+You(pl) would fill the object
+They would fill the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I fill the object?
+Did you fill the object?
+Did he fill the object?
+Did she fill the object?
+Did we fill the object?
+Did you(pl) fill the object?
+Did they fill the object?
+--- TENSE: PRESENT ---
+Do I fill the object?
+Do you fill the object?
+Does he fill the object?
+Does she fill the object?
+Do we fill the object?
+Do you(pl) fill the object?
+Do they fill the object?
+--- TENSE: FUTURE ---
+Will I fill the object?
+Will you fill the object?
+Will he fill the object?
+Will she fill the object?
+Will we fill the object?
+Will you(pl) fill the object?
+Will they fill the object?
+--- TENSE: CONDITIONAL ---
+Would I fill the object?
+Would you fill the object?
+Would he fill the object?
+Would she fill the object?
+Would we fill the object?
+Would you(pl) fill the object?
+Would they fill the object?
+------ ------ ------
+--- VERB: GATHER ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I gathered the object
+You gathered the object
+He gathered the object
+She gathered the object
+We gathered the object
+You(pl) gathered the object
+They gathered the object
+--- TENSE: PRESENT ---
+I gather the object
+You gather the object
+He gathers the object
+She gathers the object
+We gather the object
+You(pl) gather the object
+They gather the object
+--- TENSE: FUTURE ---
+I will gather the object
+You will gather the object
+He will gather the object
+She will gather the object
+We will gather the object
+You(pl) will gather the object
+They will gather the object
+--- TENSE: CONDITIONAL ---
+I would gather the object
+You would gather the object
+He would gather the object
+She would gather the object
+We would gather the object
+You(pl) would gather the object
+They would gather the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I gather the object?
+Did you gather the object?
+Did he gather the object?
+Did she gather the object?
+Did we gather the object?
+Did you(pl) gather the object?
+Did they gather the object?
+--- TENSE: PRESENT ---
+Do I gather the object?
+Do you gather the object?
+Does he gather the object?
+Does she gather the object?
+Do we gather the object?
+Do you(pl) gather the object?
+Do they gather the object?
+--- TENSE: FUTURE ---
+Will I gather the object?
+Will you gather the object?
+Will he gather the object?
+Will she gather the object?
+Will we gather the object?
+Will you(pl) gather the object?
+Will they gather the object?
+--- TENSE: CONDITIONAL ---
+Would I gather the object?
+Would you gather the object?
+Would he gather the object?
+Would she gather the object?
+Would we gather the object?
+Would you(pl) gather the object?
+Would they gather the object?
+------ ------ ------
+--- VERB: GET ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I got the object
+You got the object
+He got the object
+She got the object
+We got the object
+You(pl) got the object
+They got the object
+--- TENSE: PRESENT ---
+I get the object
+You get the object
+He gets the object
+She gets the object
+We get the object
+You(pl) get the object
+They get the object
+--- TENSE: FUTURE ---
+I will get the object
+You will get the object
+He will get the object
+She will get the object
+We will get the object
+You(pl) will get the object
+They will get the object
+--- TENSE: CONDITIONAL ---
+I would get the object
+You would get the object
+He would get the object
+She would get the object
+We would get the object
+You(pl) would get the object
+They would get the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I get the object?
+Did you get the object?
+Did he get the object?
+Did she get the object?
+Did we get the object?
+Did you(pl) get the object?
+Did they get the object?
+--- TENSE: PRESENT ---
+Do I get the object?
+Do you get the object?
+Does he get the object?
+Does she get the object?
+Do we get the object?
+Do you(pl) get the object?
+Do they get the object?
+--- TENSE: FUTURE ---
+Will I get the object?
+Will you get the object?
+Will he get the object?
+Will she get the object?
+Will we get the object?
+Will you(pl) get the object?
+Will they get the object?
+--- TENSE: CONDITIONAL ---
+Would I get the object?
+Would you get the object?
+Would he get the object?
+Would she get the object?
+Would we get the object?
+Would you(pl) get the object?
+Would they get the object?
+------ ------ ------
+--- VERB: GIVE ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I gave the object
+You gave the object
+He gave the object
+She gave the object
+We gave the object
+You(pl) gave the object
+They gave the object
+--- TENSE: PRESENT ---
+I give the object
+You give the object
+He gives the object
+She gives the object
+We give the object
+You(pl) give the object
+They give the object
+--- TENSE: FUTURE ---
+I will give the object
+You will give the object
+He will give the object
+She will give the object
+We will give the object
+You(pl) will give the object
+They will give the object
+--- TENSE: CONDITIONAL ---
+I would give the object
+You would give the object
+He would give the object
+She would give the object
+We would give the object
+You(pl) would give the object
+They would give the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I give the object?
+Did you give the object?
+Did he give the object?
+Did she give the object?
+Did we give the object?
+Did you(pl) give the object?
+Did they give the object?
+--- TENSE: PRESENT ---
+Do I give the object?
+Do you give the object?
+Does he give the object?
+Does she give the object?
+Do we give the object?
+Do you(pl) give the object?
+Do they give the object?
+--- TENSE: FUTURE ---
+Will I give the object?
+Will you give the object?
+Will he give the object?
+Will she give the object?
+Will we give the object?
+Will you(pl) give the object?
+Will they give the object?
+--- TENSE: CONDITIONAL ---
+Would I give the object?
+Would you give the object?
+Would he give the object?
+Would she give the object?
+Would we give the object?
+Would you(pl) give the object?
+Would they give the object?
+------ ------ ------
+--- VERB: GO ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I went to the object
+You went to the object
+He went to the object
+She went to the object
+We went to the object
+You(pl) went to the object
+They went to the object
+--- TENSE: PRESENT ---
+I go to the object
+You go to the object
+He goes to the object
+She goes to the object
+We go to the object
+You(pl) go to the object
+They go to the object
+--- TENSE: FUTURE ---
+I will go to the object
+You will go to the object
+He will go to the object
+She will go to the object
+We will go to the object
+You(pl) will go to the object
+They will go to the object
+--- TENSE: CONDITIONAL ---
+I would go to the object
+You would go to the object
+He would go to the object
+She would go to the object
+We would go to the object
+You(pl) would go to the object
+They would go to the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I go to the object?
+Did you go to the object?
+Did he go to the object?
+Did she go to the object?
+Did we go to the object?
+Did you(pl) go to the object?
+Did they go to the object?
+--- TENSE: PRESENT ---
+Do I go to the object?
+Do you go to the object?
+Does he go to the object?
+Does she go to the object?
+Do we go to the object?
+Do you(pl) go to the object?
+Do they go to the object?
+--- TENSE: FUTURE ---
+Will I go to the object?
+Will you go to the object?
+Will he go to the object?
+Will she go to the object?
+Will we go to the object?
+Will you(pl) go to the object?
+Will they go to the object?
+--- TENSE: CONDITIONAL ---
+Would I go to the object?
+Would you go to the object?
+Would he go to the object?
+Would she go to the object?
+Would we go to the object?
+Would you(pl) go to the object?
+Would they go to the object?
+------ ------ ------
+--- VERB: LEAVE ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I left the object
+You left the object
+He left the object
+She left the object
+We left the object
+You(pl) left the object
+They left the object
+--- TENSE: PRESENT ---
+I leave the object
+You leave the object
+He leaves the object
+She leaves the object
+We leave the object
+You(pl) leave the object
+They leave the object
+--- TENSE: FUTURE ---
+I will leave the object
+You will leave the object
+He will leave the object
+She will leave the object
+We will leave the object
+You(pl) will leave the object
+They will leave the object
+--- TENSE: CONDITIONAL ---
+I would leave the object
+You would leave the object
+He would leave the object
+She would leave the object
+We would leave the object
+You(pl) would leave the object
+They would leave the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I leave the object?
+Did you leave the object?
+Did he leave the object?
+Did she leave the object?
+Did we leave the object?
+Did you(pl) leave the object?
+Did they leave the object?
+--- TENSE: PRESENT ---
+Do I leave the object?
+Do you leave the object?
+Does he leave the object?
+Does she leave the object?
+Do we leave the object?
+Do you(pl) leave the object?
+Do they leave the object?
+--- TENSE: FUTURE ---
+Will I leave the object?
+Will you leave the object?
+Will he leave the object?
+Will she leave the object?
+Will we leave the object?
+Will you(pl) leave the object?
+Will they leave the object?
+--- TENSE: CONDITIONAL ---
+Would I leave the object?
+Would you leave the object?
+Would he leave the object?
+Would she leave the object?
+Would we leave the object?
+Would you(pl) leave the object?
+Would they leave the object?
+------ ------ ------
+--- VERB: LOOK ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I at the object
+You at the object
+He at the object
+She at the object
+We at the object
+You(pl) at the object
+They at the object
+--- TENSE: PRESENT ---
+I look the object
+You look the object
+He looks the object
+She looks the object
+We look the object
+You(pl) look the object
+They look the object
+--- TENSE: FUTURE ---
+I will look the object
+You will look the object
+He will look the object
+She will look the object
+We will look the object
+You(pl) will look the object
+They will look the object
+--- TENSE: CONDITIONAL ---
+I would look the object
+You would look the object
+He would look the object
+She would look the object
+We would look the object
+You(pl) would look the object
+They would look the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I look the object?
+Did you look the object?
+Did he look the object?
+Did she look the object?
+Did we look the object?
+Did you(pl) look the object?
+Did they look the object?
+--- TENSE: PRESENT ---
+Do I look the object?
+Do you look the object?
+Does he look the object?
+Does she look the object?
+Do we look the object?
+Do you(pl) look the object?
+Do they look the object?
+--- TENSE: FUTURE ---
+Will I look the object?
+Will you look the object?
+Will he look the object?
+Will she look the object?
+Will we look the object?
+Will you(pl) look the object?
+Will they look the object?
+--- TENSE: CONDITIONAL ---
+Would I look the object?
+Would you look the object?
+Would he look the object?
+Would she look the object?
+Would we look the object?
+Would you(pl) look the object?
+Would they look the object?
+------ ------ ------
+--- VERB: MAKE ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I made the object
+You made the object
+He made the object
+She made the object
+We made the object
+You(pl) made the object
+They made the object
+--- TENSE: PRESENT ---
+I make the object
+You make the object
+He makes the object
+She makes the object
+We make the object
+You(pl) make the object
+They make the object
+--- TENSE: FUTURE ---
+I will make the object
+You will make the object
+He will make the object
+She will make the object
+We will make the object
+You(pl) will make the object
+They will make the object
+--- TENSE: CONDITIONAL ---
+I would make the object
+You would make the object
+He would make the object
+She would make the object
+We would make the object
+You(pl) would make the object
+They would make the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I make the object?
+Did you make the object?
+Did he make the object?
+Did she make the object?
+Did we make the object?
+Did you(pl) make the object?
+Did they make the object?
+--- TENSE: PRESENT ---
+Do I make the object?
+Do you make the object?
+Does he make the object?
+Does she make the object?
+Do we make the object?
+Do you(pl) make the object?
+Do they make the object?
+--- TENSE: FUTURE ---
+Will I make the object?
+Will you make the object?
+Will he make the object?
+Will she make the object?
+Will we make the object?
+Will you(pl) make the object?
+Will they make the object?
+--- TENSE: CONDITIONAL ---
+Would I make the object?
+Would you make the object?
+Would he make the object?
+Would she make the object?
+Would we make the object?
+Would you(pl) make the object?
+Would they make the object?
+------ ------ ------
+--- VERB: PUT ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I put the object
+You put the object
+He put the object
+She put the object
+We put the object
+You(pl) put the object
+They put the object
+--- TENSE: PRESENT ---
+I put the object
+You put the object
+He puts the object
+She puts the object
+We put the object
+You(pl) put the object
+They put the object
+--- TENSE: FUTURE ---
+I will put the object
+You will put the object
+He will put the object
+She will put the object
+We will put the object
+You(pl) will put the object
+They will put the object
+--- TENSE: CONDITIONAL ---
+I would put the object
+You would put the object
+He would put the object
+She would put the object
+We would put the object
+You(pl) would put the object
+They would put the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I put the object?
+Did you put the object?
+Did he put the object?
+Did she put the object?
+Did we put the object?
+Did you(pl) put the object?
+Did they put the object?
+--- TENSE: PRESENT ---
+Do I put the object?
+Do you put the object?
+Does he put the object?
+Does she put the object?
+Do we put the object?
+Do you(pl) put the object?
+Do they put the object?
+--- TENSE: FUTURE ---
+Will I put the object?
+Will you put the object?
+Will he put the object?
+Will she put the object?
+Will we put the object?
+Will you(pl) put the object?
+Will they put the object?
+--- TENSE: CONDITIONAL ---
+Would I put the object?
+Would you put the object?
+Would he put the object?
+Would she put the object?
+Would we put the object?
+Would you(pl) put the object?
+Would they put the object?
+------ ------ ------
+--- VERB: SEE ---
+--- FORM: STATEMENT_POSITIVE ---
+--- TENSE: PAST ---
+I saw the object
+You saw the object
+He saw the object
+She saw the object
+We saw the object
+You(pl) saw the object
+They saw the object
+--- TENSE: PRESENT ---
+I see the object
+You see the object
+He sees the object
+She sees the object
+We see the object
+You(pl) see the object
+They see the object
+--- TENSE: FUTURE ---
+I will see the object
+You will see the object
+He will see the object
+She will see the object
+We will see the object
+You(pl) will see the object
+They will see the object
+--- TENSE: CONDITIONAL ---
+I would see the object
+You would see the object
+He would see the object
+She would see the object
+We would see the object
+You(pl) would see the object
+They would see the object
+--- FORM: QUESTION_VERB_POSITIVE ---
+--- TENSE: PAST ---
+Did I see the object?
+Did you see the object?
+Did he see the object?
+Did she see the object?
+Did we see the object?
+Did you(pl) see the object?
+Did they see the object?
+--- TENSE: PRESENT ---
+Do I see the object?
+Do you see the object?
+Does he see the object?
+Does she see the object?
+Do we see the object?
+Do you(pl) see the object?
+Do they see the object?
+--- TENSE: FUTURE ---
+Will I see the object?
+Will you see the object?
+Will he see the object?
+Will she see the object?
+Will we see the object?
+Will you(pl) see the object?
+Will they see the object?
+--- TENSE: CONDITIONAL ---
+Would I see the object?
+Would you see the object?
+Would he see the object?
+Would she see the object?
+Would we see the object?
+Would you(pl) see the object?
+Would they see the object?
+------ ------ ------
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

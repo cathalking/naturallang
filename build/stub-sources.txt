@@ -1,0 +1,4 @@
+/Users/cathalking/code/javaStuff/naturallang/build/tmp/stubs/org/jsoup/Jsoup.java
+/Users/cathalking/code/javaStuff/naturallang/build/tmp/stubs/org/jsoup/nodes/Document.java
+/Users/cathalking/code/javaStuff/naturallang/build/tmp/stubs/org/jsoup/nodes/Element.java
+/Users/cathalking/code/javaStuff/naturallang/build/tmp/stubs/org/jsoup/select/Elements.java

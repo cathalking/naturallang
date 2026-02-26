@@ -4,11 +4,11 @@ import ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.Subject;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.Tense;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.VerbUsage;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,37 +16,28 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static junitparams.JUnitParamsRunner.$;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm.QUESTION_VERB_POSITIVE;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.SentenceForm.STATEMENT_POSITIVE;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.Subject.*;
 import static ck.apps.leabharcleachtadh.sentencegenerator.domain.Tense.*;
 
-@RunWith(JUnitParamsRunner.class)
 public class SentenceGeneratorTest {
 
-    Object[] inputsAndExpectations() {
-        return $(
-            $(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_2ND, PAST, "the object",
-                    "Did you make the object?"),
-            $(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "the object",
-                    "Does he make the object?"),
-            $(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "the object",
-                    "Will she make the object?"),
-
-            $(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "the object",
-                    "She does the object"),
-            $(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "the object",
-                    "She does the object"))
-
-                ;
+    static Stream<Arguments> inputsAndExpectations() {
+        return Stream.of(
+            Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_2ND, PAST, "the object", "Did you make the object?"),
+            Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_MASC, PRESENT, "the object", "Does he make the object?"),
+            Arguments.of(QUESTION_VERB_POSITIVE, Verb.MAKE, SING_3RD_FEM, FUTURE, "the object", "Will she make the object?"),
+            Arguments.of(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "the object", "She does the object"),
+            Arguments.of(STATEMENT_POSITIVE, Verb.DO, SING_3RD_FEM, PRESENT, "the object", "She does the object")
+        );
     }
 
-    @Parameters(method = "inputsAndExpectations")
-    @Test
+    @ParameterizedTest
+    @MethodSource("inputsAndExpectations")
     public void generateTenses(SentenceForm form, Verb verb, Subject subject, Tense tense, String object, String expected) {
         VerbUsage usage = VerbUsage.usage(form, verb, subject, tense, object);
         String sentence = Sentence.toSentence(usage);

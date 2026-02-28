@@ -13,8 +13,8 @@
 - Interactive (Gradle): `./gradlew run`
 - Script-friendly: `scripts/run.sh --script`
 - Interactive via script: `scripts/run.sh --interactive`
-- Docker build: `scripts/docker-build.sh`
-- Docker run: `scripts/docker-run.sh` (uses image `naturallang` on port `8080`)
+ - Docker build (Boot Build Image): `scripts/docker-build.sh`
+ - Docker run: `scripts/docker-run.sh` (runs the `naturallang:latest` image on port `8080`)
 - Script-friendly (direct binary): `build/install/naturallang/bin/naturallang --script`
 - Script-friendly with input file: `build/install/naturallang/bin/naturallang --script --max-questions=5 < answers.txt`
 - Flag: `--script` disables color/prompt noise for piping.

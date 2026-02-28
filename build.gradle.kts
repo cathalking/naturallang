@@ -45,6 +45,13 @@ application {
 
 springBoot {
     mainClass.set("ck.apps.leabharcleachtadh.api.PracticeApiApplication")
+    buildInfo()
+    buildImage {
+        imageName.set("naturallang:latest")
+        docker {
+            publish.set(false)
+        }
+    }
 }
 
 tasks.test {

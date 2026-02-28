@@ -125,10 +125,18 @@ function App() {
         )}
         {summary && sessionId && (
           <div className="summary">
-            <span>Asked: {summary.asked}</span>
-            <span>Correct: {summary.correct}</span>
-            <span>Incorrect: {summary.incorrect}</span>
-            <span>Skipped: {summary.skipped}</span>
+            <span>
+              <span className="summary-icon">🕒</span>Asked: {summary.asked}
+            </span>
+            <span>
+              <span className="summary-icon">✅</span>Correct: {summary.correct}
+            </span>
+            <span>
+              <span className="summary-icon">❌</span>Incorrect: {summary.incorrect}
+            </span>
+            <span>
+              <span className="summary-icon">⚪</span>Skipped: {summary.skipped}
+            </span>
           </div>
         )}
       </div>

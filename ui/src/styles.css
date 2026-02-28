@@ -145,6 +145,11 @@ body {
   white-space: nowrap;
 }
 
+.summary-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
 .summary span::before {
   font-size: 1.05rem;
 }

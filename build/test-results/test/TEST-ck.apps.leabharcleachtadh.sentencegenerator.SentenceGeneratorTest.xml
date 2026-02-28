@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-23T20:18:39.488Z" hostname="Cathals-MacBook-Air.local" time="0.027">
+<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-28T14:40:24.235Z" hostname="Cathals-MacBook-Air.local" time="0.019">
   <properties/>
-  <testcase name="[1] QUESTION_VERB_POSITIVE, MAKE, SING_2ND, PAST, the object, Did you make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.002"/>
-  <testcase name="[2] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_MASC, PRESENT, the object, Does he make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[1] QUESTION_VERB_POSITIVE, MAKE, SING_2ND, PAST, the object, Did you make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
+  <testcase name="[2] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_MASC, PRESENT, the object, Does he make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
   <testcase name="[3] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_FEM, FUTURE, the object, Will she make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
   <testcase name="[4] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
   <testcase name="[5] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
-  <testcase name="showPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.018"/>
-  <testcase name="Build Permutations" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
+  <testcase name="showPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.014"/>
+  <testcase name="Build Permutations" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
   <system-out><![CDATA[--- VERB: BE ---
 --- FORM: STATEMENT_POSITIVE ---
 --- TENSE: PAST ---

@@ -42,19 +42,19 @@ class BuNaMoVerbLookupTest {
     @Test
     void parse_dean_past_statement_positive_pl1() throws IOException {
         VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_POSITIVE, Verb.DO, Subject.PLURAL_1ST, Tense.PAST, "");
-        assertThat(BuNaMoVerbLookup.parse(usage), is("rinneamar muid"));
+        assertThat(BuNaMoVerbLookup.parse(usage), is("rinne muid"));
     }
 
     @Test
     void parse_dean_past_statement_positive_sg3_feminine_subject() throws IOException {
         VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_POSITIVE, Verb.DO, Subject.SING_3RD_FEM, Tense.PAST, "");
-        assertThat(BuNaMoVerbLookup.parse(usage), is("rinne sé"));
+        assertThat(BuNaMoVerbLookup.parse(usage), is("rinne sí"));
     }
 
     @Test
     void parse_dean_past_statement_negative_sg1() throws IOException {
         VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_NEGATIVE, Verb.DO, Subject.SING_1ST, Tense.PAST, "");
-        assertThat(BuNaMoVerbLookup.parse(usage), is("níor dhearna mé"));
+        assertThat(BuNaMoVerbLookup.parse(usage), is("ní dhearna mé"));
     }
 
     @Test
@@ -66,12 +66,30 @@ class BuNaMoVerbLookupTest {
     @Test
     void parse_faigh_present_question_positive_sg1() throws IOException {
         VerbUsage usage = VerbUsage.usage(SentenceForm.QUESTION_VERB_POSITIVE, Verb.GET, Subject.SING_1ST, Tense.PRESENT, "");
-        assertThat(BuNaMoVerbLookup.parse(usage), is("an bhfaighim mé?"));
+        assertThat(BuNaMoVerbLookup.parse(usage), is("an bhfaighim?"));
     }
 
     @Test
     void parse_teigh_past_question_negative_sg1() throws IOException {
         VerbUsage usage = VerbUsage.usage(SentenceForm.QUESTION_VERB_NEGATIVE, Verb.GO, Subject.SING_1ST, Tense.PAST, "");
-        assertThat(BuNaMoVerbLookup.parse(usage), is("nár dheachaigh mé?"));
+        assertThat(BuNaMoVerbLookup.parse(usage), is("nach ndeachaigh mé?"));
+    }
+
+    @Test
+    void parse_lion_past_question_positive_sg1() throws IOException {
+        VerbUsage usage = VerbUsage.usage(SentenceForm.QUESTION_VERB_POSITIVE, Verb.FILL, Subject.SING_1ST, Tense.PAST, "");
+        assertThat(BuNaMoVerbLookup.parse(usage), is("ar líon mé?"));
+    }
+
+    @Test
+    void parse_tabhair_past_question_positive_sg1() throws IOException {
+        VerbUsage usage = VerbUsage.usage(SentenceForm.QUESTION_VERB_POSITIVE, Verb.GIVE, Subject.SING_1ST, Tense.PAST, "");
+        assertThat(BuNaMoVerbLookup.parse(usage), is("ar thug mé?"));
+    }
+
+    @Test
+    void parse_tar_past_question_positive_sg1() throws IOException {
+        VerbUsage usage = VerbUsage.usage(SentenceForm.QUESTION_VERB_POSITIVE, Verb.COME, Subject.SING_1ST, Tense.PAST, "");
+        assertThat(BuNaMoVerbLookup.parse(usage), is("ar tháinig mé?"));
     }
 }

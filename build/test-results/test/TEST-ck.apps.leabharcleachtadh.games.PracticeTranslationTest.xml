@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ck.apps.leabharcleachtadh.games.PracticeTranslationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-23T20:18:39.334Z" hostname="Cathals-MacBook-Air.local" time="0.077">
+<testsuite name="ck.apps.leabharcleachtadh.games.PracticeTranslationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-28T14:40:24.109Z" hostname="Cathals-MacBook-Air.local" time="0.059">
   <properties/>
-  <testcase name="translate_replaces_se_with_si_for_feminine()" classname="ck.apps.leabharcleachtadh.games.PracticeTranslationTest" time="0.064"/>
+  <testcase name="translate_replaces_se_with_si_for_feminine()" classname="ck.apps.leabharcleachtadh.games.PracticeTranslationTest" time="0.044"/>
+  <testcase name="accepts_response_without_pronoun_for_sg1()" classname="ck.apps.leabharcleachtadh.games.PracticeTranslationTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -41,14 +41,33 @@ public class Practice {
 
     static int promptColour = 36;
     private static final String MODE_SCRIPT = "--script";
+    private static final String MODE_NO_PRONOUNS = "--no-pronouns";
+    private static final String MODE_STRICT = "--strict";
+    private static final String PRONOUNS_PREFIX = "--pronouns=";
     private static final String MAX_QUESTIONS_PREFIX = "--max-questions=";
 
     public static void main(String[] args) {
         boolean scriptMode = false;
         Integer maxQuestions = null;
+        BuNaMoVerbLookup.PronounMode pronounMode = BuNaMoVerbLookup.PronounMode.STRICT;
         for (String arg : args) {
             if (MODE_SCRIPT.equals(arg)) {
                 scriptMode = true;
+            } else if (MODE_NO_PRONOUNS.equals(arg)) {
+                pronounMode = BuNaMoVerbLookup.PronounMode.OMIT;
+            } else if (MODE_STRICT.equals(arg)) {
+                pronounMode = BuNaMoVerbLookup.PronounMode.STRICT;
+            } else if (arg.startsWith(PRONOUNS_PREFIX)) {
+                String value = arg.substring(PRONOUNS_PREFIX.length()).trim().toLowerCase();
+                switch (value) {
+                    case "omit" -> pronounMode = BuNaMoVerbLookup.PronounMode.OMIT;
+                    case "always" -> pronounMode = BuNaMoVerbLookup.PronounMode.ALWAYS;
+                    case "prefer-synthetic" -> pronounMode = BuNaMoVerbLookup.PronounMode.PREFER_SYNTHETIC;
+                    case "strict" -> pronounMode = BuNaMoVerbLookup.PronounMode.STRICT;
+                    default -> {
+                        // Ignore invalid pronoun mode values.
+                    }
+                }
             } else if (arg.startsWith(MAX_QUESTIONS_PREFIX)) {
                 String raw = arg.substring(MAX_QUESTIONS_PREFIX.length());
                 try {
@@ -71,10 +90,10 @@ public class Practice {
         // Verb[] verbs = new Verb[] { Verb.DO };
         Verb[] verbs = ENGLISH2IRISH.keySet().toArray(new Verb[0]);
         List<VerbUsage> permutations = permutations(verbs, forms, Tense.values(), Subject.values(), "(the thing)");
-        practice.runSession(() -> getNextRandom(permutations), scriptMode, maxQuestions);
+        practice.runSession(() -> getNextRandom(permutations), scriptMode, maxQuestions, pronounMode);
     }
 
-    void runSession(Supplier<VerbUsage> supplier, boolean scriptMode, Integer maxQuestions) {
+    void runSession(Supplier<VerbUsage> supplier, boolean scriptMode, Integer maxQuestions, BuNaMoVerbLookup.PronounMode pronounMode) {
         Scanner scanner = new Scanner(System.in);
         List<VerbUsage> skipped = new ArrayList<>();
         AudioPlayer audioPlayer = new AudioPlayer();
@@ -120,12 +139,12 @@ public class Practice {
                         break;
                     }
                     case SHOW_SUMMARY: {
-                        showSummary(skipped, correct, incorrect);
+                        showSummary(skipped, correct, incorrect, pronounMode);
                         break;
                     }
                     case QUIT: {
                         System.out.printf("Quitting...\n");
-                        showSummary(skipped, correct, incorrect);
+                        showSummary(skipped, correct, incorrect, pronounMode);
                         keepGoing = false;
                     }
                     default:
@@ -135,10 +154,10 @@ public class Practice {
                     return;
                 }
             } else {
-                String officialTranslation = translate(verbUsage);
+                String officialTranslation = translate(verbUsage, pronounMode);
 //                String officialTranslationRaw = usage.toSentence();
 //                String officialTranslation = officialTranslationRaw.replaceAll(" \\(the thing\\)", "");
-                if (officialTranslation.replaceAll("\\?", "").equalsIgnoreCase(response.replaceAll("\\?", ""))) {
+                if (isCorrectIrish(officialTranslation, response, verbUsage.getSubject(), pronounMode)) {
                     correct.put(verbUsage, response);
                 } else {
                     incorrect.put(verbUsage, response);
@@ -154,13 +173,53 @@ public class Practice {
 
     }
 
+    private boolean isCorrectIrish(String official, String response, Subject subject, BuNaMoVerbLookup.PronounMode pronounMode) {
+        String normalizedOfficial = normalizeIrish(official);
+        String normalizedResponse = normalizeIrish(response);
+        if (normalizedOfficial.equals(normalizedResponse)) {
+            return true;
+        }
+        if (pronounMode == BuNaMoVerbLookup.PronounMode.STRICT) {
+            return false;
+        }
+        String officialNoPronoun = stripTrailingPronoun(normalizedOfficial, subject);
+        String responseNoPronoun = stripTrailingPronoun(normalizedResponse, subject);
+        return officialNoPronoun.equals(normalizedResponse)
+                || normalizedOfficial.equals(responseNoPronoun)
+                || officialNoPronoun.equals(responseNoPronoun);
+    }
+
+    private String normalizeIrish(String value) {
+        return value
+                .replaceAll("\\?", "")
+                .trim()
+                .replaceAll("\\s+", " ")
+                .toLowerCase();
+    }
+
+    private String stripTrailingPronoun(String value, Subject subject) {
+        String pronoun = switch (subject) {
+            case SING_1ST -> "mé";
+            case SING_2ND -> "tú";
+            case SING_3RD_MASC -> "sé";
+            case SING_3RD_FEM -> "sí";
+            case PLURAL_1ST -> "muid";
+            case PLURAL_2ND -> "sibh";
+            case PLURAL_3RD -> "siad";
+        };
+        if (value.endsWith(" " + pronoun)) {
+            return value.substring(0, value.length() - pronoun.length() - 1);
+        }
+        return value;
+    }
+
     private static VerbUsage getNextRandom(List<VerbUsage> permutations) {
         int size = permutations.size();
         int index = (int)(Math.random() * size);
         return permutations.get(index);
     }
 
-    private void showSummary(List<VerbUsage> skipped, Map<VerbUsage, String> correct, Map<VerbUsage, String> incorrect) {
+    private void showSummary(List<VerbUsage> skipped, Map<VerbUsage, String> correct, Map<VerbUsage, String> incorrect, BuNaMoVerbLookup.PronounMode pronounMode) {
         System.out.printf("Summary: Correct: " + colour("%d", 32) + " Incorrect: " + colour("%d", 31) + " Skipped %d\n", correct.size(), incorrect.size(), skipped.size());
         System.out.printf("\n%d skipped\n", skipped.size());
         final int minWidth1 = getMaxSentenceLength(skipped);
@@ -175,7 +234,7 @@ public class Practice {
         });
         System.out.printf(colour("\n%d translated incorrectly \n", 31), incorrect.size());
         incorrect.forEach((usage, userInput) -> {
-            String officialTranslation = translate(usage);
+            String officialTranslation = translate(usage, pronounMode);
             System.out.printf("+ %-" + minWidth2 +"s => %s (%s)\n", Sentence.toSentence(usage), officialTranslation, userInput);
         });
     }
@@ -200,16 +259,13 @@ public class Practice {
         return (char)27 + "["+ colour +  "m" + s + (char)27 + "[0m";
     }
 
-    private String translate(VerbUsage verbUsage) {
+    private String translate(VerbUsage verbUsage, BuNaMoVerbLookup.PronounMode pronounMode) {
         String irishVerbConj = "?";
         try {
             try {
-                irishVerbConj = BuNaMoVerbLookup.parse(verbUsage);
+                irishVerbConj = BuNaMoVerbLookup.parse(verbUsage, pronounMode);
             } catch (IOException e) {
                 irishVerbConj = HtmlVerbLookup.parse(verbUsage);
-            }
-            if (verbUsage.getSubject().equals(Subject.SING_3RD_FEM)) {
-                irishVerbConj = irishVerbConj.replaceAll(" sé", " sí");
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -22,14 +22,22 @@ import java.util.Map;
 public class BuNaMoVerbLookup {
     private static final Path DEFAULT_VERB_ROOT = Paths.get("vendor", "BuNaMo", "verb");
     private static final Map<String, VerbData> CACHE = new HashMap<>();
+    private static final boolean ULSTER_PL1_ANALYTIC = Boolean.parseBoolean(
+            System.getProperty("irish.ulster.pl1.analytic", "true")
+    );
 
     public static String parse(VerbUsage verbUsage) throws IOException {
+        return parse(verbUsage, PronounMode.STRICT);
+    }
+
+    public static String parse(VerbUsage verbUsage, PronounMode pronounMode) throws IOException {
         VerbData data = loadVerb(verbUsage.getVerb());
+        String lemma = Practice.ENGLISH2IRISH.get(verbUsage.getVerb());
         Dependency dependency = dependencyFor(verbUsage.getSentenceForm());
-        String form = data.getTenseForm(verbUsage.getTense(), dependency, verbUsage.getSubject());
-        String particle = particleFor(verbUsage.getSentenceForm(), verbUsage.getTense());
-        String mutated = applyMutation(form, particle);
-        String pronoun = pronounFor(verbUsage.getSubject());
+        TenseForm tenseForm = data.getTenseForm(verbUsage.getTense(), dependency, verbUsage.getSubject(), ULSTER_PL1_ANALYTIC);
+        String particle = particleFor(verbUsage.getSentenceForm(), verbUsage.getTense(), lemma);
+        String mutated = applyMutation(tenseForm.value(), particle);
+        boolean includePronoun = shouldIncludePronoun(pronounMode, verbUsage.getSubject(), tenseForm.personSpecific());
 
         StringBuilder sb = new StringBuilder();
         if (!particle.isEmpty()) {
@@ -37,7 +45,9 @@ public class BuNaMoVerbLookup {
         } else {
             sb.append(mutated);
         }
-        sb.append(" ").append(pronoun);
+        if (includePronoun) {
+            sb.append(" ").append(pronounFor(verbUsage.getSubject()));
+        }
         if (verbUsage.getSentenceForm().isQuestion()) {
             sb.append("?");
         }
@@ -95,12 +105,28 @@ public class BuNaMoVerbLookup {
         };
     }
 
-    private static String particleFor(SentenceForm form, Tense tense) {
+    private static String particleFor(SentenceForm form, Tense tense, String lemma) {
+        boolean irregularPastUsesAnNi = tense == Tense.PAST && usesAnNiParticlesInPast(lemma);
         return switch (form) {
             case STATEMENT_POSITIVE -> "";
-            case STATEMENT_NEGATIVE -> tense == Tense.PAST ? "níor" : "ní";
-            case QUESTION_VERB_POSITIVE -> "an";
-            case QUESTION_VERB_NEGATIVE -> tense == Tense.PAST ? "nár" : "nach";
+            case STATEMENT_NEGATIVE -> {
+                if (tense == Tense.PAST && !irregularPastUsesAnNi) {
+                    yield "níor";
+                }
+                yield "ní";
+            }
+            case QUESTION_VERB_POSITIVE -> {
+                if (tense == Tense.PAST && !irregularPastUsesAnNi) {
+                    yield "ar";
+                }
+                yield "an";
+            }
+            case QUESTION_VERB_NEGATIVE -> {
+                if (tense == Tense.PAST && !irregularPastUsesAnNi) {
+                    yield "nár";
+                }
+                yield "nach";
+            }
         };
     }
 
@@ -108,7 +134,8 @@ public class BuNaMoVerbLookup {
         return switch (subject) {
             case SING_1ST -> "mé";
             case SING_2ND -> "tú";
-            case SING_3RD_MASC, SING_3RD_FEM -> "sé";
+            case SING_3RD_MASC -> "sé";
+            case SING_3RD_FEM -> "sí";
             case PLURAL_1ST -> "muid";
             case PLURAL_2ND -> "sibh";
             case PLURAL_3RD -> "siad";
@@ -122,7 +149,7 @@ public class BuNaMoVerbLookup {
         if (particle.equals("an") || particle.equals("nach")) {
             return eclipse(verbForm);
         }
-        if (particle.equals("ní") || particle.equals("níor") || particle.equals("nár")) {
+        if (particle.equals("ní") || particle.equals("níor") || particle.equals("nár") || particle.equals("ar")) {
             return lenite(verbForm);
         }
         return verbForm;
@@ -215,6 +242,13 @@ public class BuNaMoVerbLookup {
         DEP
     }
 
+    public enum PronounMode {
+        ALWAYS,
+        PREFER_SYNTHETIC,
+        STRICT,
+        OMIT
+    }
+
     private static class VerbData {
         private final Map<String, Map<String, Map<String, String>>> forms = new HashMap<>();
 
@@ -224,7 +258,7 @@ public class BuNaMoVerbLookup {
                     .put(person, value);
         }
 
-        String getTenseForm(Tense tense, Dependency dependency, Subject subject) throws IOException {
+        TenseForm getTenseForm(Tense tense, Dependency dependency, Subject subject, boolean ulsterPl1Analytic) throws IOException {
             String tenseKey = switch (tense) {
                 case PAST -> "Past";
                 case PRESENT -> "PresCont";
@@ -242,7 +276,9 @@ public class BuNaMoVerbLookup {
             if (dependencyForms == null) {
                 throw new IOException("No dependency forms for " + tenseKey + " " + dependencyKey);
             }
-            String value = dependencyForms.get(personKey);
+            boolean forceAnalytic = ulsterPl1Analytic && subject == Subject.PLURAL_1ST;
+            String value = forceAnalytic ? dependencyForms.get("Base") : dependencyForms.get(personKey);
+            boolean personSpecific = value != null && !"Base".equals(personKey) && !forceAnalytic;
             if (value == null && !"Base".equals(personKey)) {
                 value = dependencyForms.get("Base");
             }
@@ -252,7 +288,7 @@ public class BuNaMoVerbLookup {
             if (value == null) {
                 throw new IOException("Missing form for tense=" + tenseKey + " dependency=" + dependencyKey + " person=" + personKey);
             }
-            return value;
+            return new TenseForm(value, personSpecific);
         }
 
         private String personKeyFor(Subject subject) {
@@ -265,5 +301,36 @@ public class BuNaMoVerbLookup {
                 case PLURAL_3RD -> "Pl3";
             };
         }
+    }
+
+    private record TenseForm(String value, boolean personSpecific) {}
+
+    private static boolean shouldIncludePronoun(PronounMode mode, Subject subject, boolean personSpecific) {
+        if (mode == PronounMode.OMIT) {
+            return false;
+        }
+        if (mode == PronounMode.ALWAYS) {
+            return true;
+        }
+        if (!personSpecific) {
+            return true;
+        }
+        if (mode == PronounMode.STRICT) {
+            return false;
+        }
+        return switch (subject) {
+            case SING_1ST, SING_2ND, PLURAL_1ST -> false;
+            case SING_3RD_MASC, SING_3RD_FEM, PLURAL_2ND, PLURAL_3RD -> true;
+        };
+    }
+
+    private static boolean usesAnNiParticlesInPast(String lemma) {
+        if (lemma == null) {
+            return false;
+        }
+        return switch (lemma) {
+            case "bí", "abair", "déan", "faigh", "feic", "téigh" -> true;
+            default -> false;
+        };
     }
 }

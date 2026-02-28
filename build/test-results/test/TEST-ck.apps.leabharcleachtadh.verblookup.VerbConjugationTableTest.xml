@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2026-02-28T14:40:24.276Z" hostname="Cathals-MacBook-Air.local" time="0.02">
+  <properties/>
+  <testcase name="irregular past negative: BE" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.004"/>
+  <testcase name="irregular past negative: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past negative: GET" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past negative: SEE" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past negative: GO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="regular past question: FILL" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="regular past question: PUT" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.002"/>
+  <testcase name="regular past question: GATHER" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.002"/>
+  <testcase name="regular past negative: FILL" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="regular past negative: PUT" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="regular past negative: GATHER" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="strict synthetic omission: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="strict synthetic omission: GET" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past question: BE" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past question: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past question: GET" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="irregular past question: SEE" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="irregular past question: GO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="strict base forms keep pronoun: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="strict base forms keep pronoun: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.001"/>
+  <testcase name="strict base forms keep pronoun: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <testcase name="strict base forms keep pronoun: DO" classname="ck.apps.leabharcleachtadh.verblookup.VerbConjugationTableTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

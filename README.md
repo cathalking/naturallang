@@ -17,4 +17,7 @@
 - Script-friendly with input file: `build/install/naturallang/bin/naturallang --script --max-questions=5 < answers.txt`
 - Flag: `--script` disables color/prompt noise for piping.
 - Flag: `--max-questions=N` exits after N prompts.
+- Flag: `--strict` uses strict grammar matching (default).
+- Flag: `--no-pronouns` omits explicit Irish pronouns in answers.
+- Flag: `--pronouns=always|prefer-synthetic|strict|omit` controls pronoun inclusion.
 - Arg: a numeric arg sets the prompt color, e.g. `36`.

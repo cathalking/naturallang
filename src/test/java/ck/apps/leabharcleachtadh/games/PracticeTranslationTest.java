@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Method;
 import java.nio.file.Paths;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -36,25 +35,18 @@ class PracticeTranslationTest {
 
     @Test
     void translate_replaces_se_with_si_for_feminine() throws Exception {
-        Practice practice = new Practice();
+        PracticeEngine engine = new PracticeEngine(BuNaMoVerbLookup.PronounMode.STRICT);
         VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_POSITIVE, Verb.DO, Subject.SING_3RD_FEM, Tense.PAST, "");
-        Method translate = Practice.class.getDeclaredMethod("translate", VerbUsage.class, BuNaMoVerbLookup.PronounMode.class);
-        translate.setAccessible(true);
-        String result = (String) translate.invoke(practice, usage, BuNaMoVerbLookup.PronounMode.STRICT);
+        String result = engine.translate(usage);
         assertThat(result, is("Rinne sí"));
     }
 
     @Test
     void accepts_response_without_pronoun_for_sg1() throws Exception {
-        Practice practice = new Practice();
+        PracticeEngine engine = new PracticeEngine(BuNaMoVerbLookup.PronounMode.STRICT);
         VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_NEGATIVE, Verb.SEE, Subject.SING_1ST, Tense.PRESENT, "");
-        Method translate = Practice.class.getDeclaredMethod("translate", VerbUsage.class, BuNaMoVerbLookup.PronounMode.class);
-        translate.setAccessible(true);
-        String official = (String) translate.invoke(practice, usage, BuNaMoVerbLookup.PronounMode.STRICT);
-
-        Method isCorrectIrish = Practice.class.getDeclaredMethod("isCorrectIrish", String.class, String.class, Subject.class, BuNaMoVerbLookup.PronounMode.class);
-        isCorrectIrish.setAccessible(true);
-        boolean matches = (boolean) isCorrectIrish.invoke(practice, official, "Ní fheicim", Subject.SING_1ST, BuNaMoVerbLookup.PronounMode.STRICT);
+        String official = engine.translate(usage);
+        boolean matches = engine.isCorrect(usage, "Ní fheicim");
         assertThat(matches, is(true));
     }
 }

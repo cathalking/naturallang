@@ -1,4 +1,6 @@
 plugins {
+    id("org.springframework.boot") version "3.4.5"
+    id("io.spring.dependency-management") version "1.1.6"
     java
     application
 }
@@ -24,19 +26,25 @@ dependencies {
     implementation("com.google.guava:guava:33.3.1-jre")
     implementation("org.jsoup:jsoup:1.10.2")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.19.2")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 
     // Audio codec SPI dependencies used by runtime playback path.
     runtimeOnly("com.googlecode.soundlibs:tritonus-share:0.3.7-2")
     runtimeOnly("com.googlecode.soundlibs:mp3spi:1.9.5-1")
     runtimeOnly("com.googlecode.soundlibs:vorbisspi:1.0.3-1")
 
-    testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
+    testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.hamcrest:hamcrest:3.0")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.12.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 application {
     mainClass.set("ck.apps.leabharcleachtadh.games.Practice")
+}
+
+springBoot {
+    mainClass.set("ck.apps.leabharcleachtadh.api.PracticeApiApplication")
 }
 
 tasks.test {

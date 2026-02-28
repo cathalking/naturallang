@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-28T14:40:24.235Z" hostname="Cathals-MacBook-Air.local" time="0.019">
+<testsuite name="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-28T15:58:55.114Z" hostname="Cathals-MacBook-Air.local" time="0.017">
   <properties/>
-  <testcase name="[1] QUESTION_VERB_POSITIVE, MAKE, SING_2ND, PAST, the object, Did you make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
-  <testcase name="[2] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_MASC, PRESENT, the object, Does he make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
-  <testcase name="[3] QUESTION_VERB_POSITIVE, MAKE, SING_3RD_FEM, FUTURE, the object, Will she make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
-  <testcase name="[4] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
-  <testcase name="[5] STATEMENT_POSITIVE, DO, SING_3RD_FEM, PRESENT, the object, She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
-  <testcase name="showPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.014"/>
+  <testcase name="[1] form=QUESTION_VERB_POSITIVE, verb=MAKE, subject=SING_2ND, tense=PAST, object=the object, expected=Did you make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.001"/>
+  <testcase name="[2] form=QUESTION_VERB_POSITIVE, verb=MAKE, subject=SING_3RD_MASC, tense=PRESENT, object=the object, expected=Does he make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[3] form=QUESTION_VERB_POSITIVE, verb=MAKE, subject=SING_3RD_FEM, tense=FUTURE, object=the object, expected=Will she make the object?" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[4] form=STATEMENT_POSITIVE, verb=DO, subject=SING_3RD_FEM, tense=PRESENT, object=the object, expected=She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="[5] form=STATEMENT_POSITIVE, verb=DO, subject=SING_3RD_FEM, tense=PRESENT, object=the object, expected=She does the object" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
+  <testcase name="showPermutations()" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.012"/>
   <testcase name="Build Permutations" classname="ck.apps.leabharcleachtadh.sentencegenerator.SentenceGeneratorTest" time="0.0"/>
   <system-out><![CDATA[--- VERB: BE ---
 --- FORM: STATEMENT_POSITIVE ---

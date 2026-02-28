@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-02-28T14:40:24.255Z" hostname="Cathals-MacBook-Air.local" time="0.019">
+<testsuite name="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-02-28T15:58:55.131Z" hostname="Cathals-MacBook-Air.local" time="0.018">
   <properties/>
-  <testcase name="parse_tar_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.004"/>
+  <testcase name="parse_tar_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.002"/>
   <testcase name="parse_dean_past_statement_positive_sg3_feminine_subject()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
-  <testcase name="parse_teigh_past_question_negative_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.003"/>
-  <testcase name="parse_lion_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.003"/>
-  <testcase name="parse_dean_past_statement_positive_pl1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_teigh_past_question_negative_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.002"/>
+  <testcase name="parse_lion_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.006"/>
+  <testcase name="parse_dean_past_statement_positive_pl1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.001"/>
   <testcase name="parse_dean_past_statement_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
   <testcase name="parse_dean_past_statement_negative_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
-  <testcase name="parse_dean_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.001"/>
-  <testcase name="parse_faigh_present_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.006"/>
+  <testcase name="parse_dean_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.0"/>
+  <testcase name="parse_faigh_present_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.002"/>
   <testcase name="parse_tabhair_past_question_positive_sg1()" classname="ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookupTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

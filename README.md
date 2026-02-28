@@ -15,7 +15,9 @@
 - Interactive via script: `scripts/run.sh --interactive`
 - Docker build (Boot Build Image): `scripts/docker-build.sh`
 - Docker run: `scripts/docker-run.sh` (runs the `naturallang:latest` image on port `8080`)
-- Frontend: `cd ui && npm install` then `npm run dev` (default proxies `/api/practice`).
+- Frontend setup: `cd ui && npm install`, then `npm run dev` (defaults to `http://localhost:4173` and proxies `/api/practice`).
+- Frontend production build: `cd ui && npm run build`.
+- Dev helper: `scripts/dev-web.sh` (builds + runs backend + frontend, opens browser on macOS).
 - Build UI bundle: `npm run build`.
 - Script-friendly (direct binary): `build/install/naturallang/bin/naturallang --script`
 - Script-friendly with input file: `build/install/naturallang/bin/naturallang --script --max-questions=5 < answers.txt`

@@ -140,4 +140,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.summary span::before {
+  font-size: 1.05rem;
 }

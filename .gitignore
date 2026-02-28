@@ -4,3 +4,4 @@ target/
 bin/
 build/
 .gradle/
+ui/node_modules/

@@ -6,3 +6,21 @@ build/
 .gradle/
 ui/node_modules/
 ui/dist/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Frontend/tool caches
+ui/.vite/
+ui/.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

@@ -44,6 +44,56 @@ class PracticeControllerIntegrationTest {
         assertThat(summaryTwo.asked()).isZero();
     }
 
+    @Test
+    void remainingReflectsActualPromptPool() throws Exception {
+        PracticeController.CreateSessionRequest request = new PracticeController.CreateSessionRequest(
+                List.of("DO", "GO", "MAKE"),
+                List.of(SentenceForm.STATEMENT_POSITIVE.name()),
+                List.of(Tense.PAST.name()),
+                List.of(Subject.SING_1ST.name()),
+                "(the thing)",
+                10,
+                "strict"
+        );
+
+        String payload = objectMapper.writeValueAsString(request);
+        String body = mockMvc.perform(post("/api/practice/sessions")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payload))
+                .andExpect(status().isCreated())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        PracticeController.CreateSessionResponse session = objectMapper.readValue(body, PracticeController.CreateSessionResponse.class);
+
+        PracticeController.PromptResponse first = prompt(session);
+        assertThat(first.remaining()).isEqualTo(2);
+
+        PracticeController.PromptResponse second = prompt(session);
+        assertThat(second.remaining()).isEqualTo(1);
+
+        PracticeController.PromptResponse third = prompt(session);
+        assertThat(third.remaining()).isZero();
+
+        PracticeController.PromptResponse done = prompt(session);
+        assertThat(done.done()).isTrue();
+        assertThat(done.remaining()).isZero();
+    }
+
+    @Test
+    void skipIncrementsSkippedCount() throws Exception {
+        PracticeController.CreateSessionResponse session = createSession("DO");
+
+        prompt(session);
+        PracticeSession.SummaryResult skipped = skip(session.sessionId());
+
+        assertThat(skipped.skipped()).isEqualTo(1);
+        assertThat(skipped.asked()).isEqualTo(1);
+
+        PracticeSession.SummaryResult summary = summary(session.sessionId());
+        assertThat(summary.skipped()).isEqualTo(1);
+    }
+
     private PracticeController.CreateSessionResponse createSession(String verb) throws Exception {
         PracticeController.CreateSessionRequest request = new PracticeController.CreateSessionRequest(
                 List.of(verb),
@@ -83,6 +133,15 @@ class PracticeControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
         return objectMapper.readValue(body, PracticeController.AnswerResponse.class);
+    }
+
+    private PracticeSession.SummaryResult skip(String sessionId) throws Exception {
+        String body = mockMvc.perform(post("/api/practice/sessions/{id}/skip", sessionId))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        return objectMapper.readValue(body, PracticeSession.SummaryResult.class);
     }
 
     private PracticeSession.SummaryResult summary(String sessionId) throws Exception {

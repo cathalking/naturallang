@@ -83,3 +83,17 @@ export function postAnswer(sessionId: string, answer: AnswerRequest): Promise<An
     body: JSON.stringify(answer)
   }).then(handleResponse);
 }
+
+export function postSkip(sessionId: string): Promise<SummaryResult> {
+  return fetch(`${BASE_URL}/sessions/${sessionId}/skip`, {
+    method: "POST",
+    headers: jsonHeaders
+  }).then(handleResponse);
+}
+
+export function quitSession(sessionId: string): Promise<SummaryResult> {
+  return fetch(`${BASE_URL}/sessions/${sessionId}/quit`, {
+    method: "POST",
+    headers: jsonHeaders
+  }).then(handleResponse);
+}

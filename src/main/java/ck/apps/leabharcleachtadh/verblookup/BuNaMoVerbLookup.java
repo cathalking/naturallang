@@ -18,10 +18,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class BuNaMoVerbLookup {
     private static final Path DEFAULT_VERB_ROOT = Paths.get("vendor", "BuNaMo", "verb");
     private static final Map<String, VerbData> CACHE = new HashMap<>();
+    private static final Set<String> POSITIVE_PAST_NO_LENITION = Set.of("abair", "déan", "faigh");
     private static final boolean ULSTER_PL1_ANALYTIC = Boolean.parseBoolean(
             System.getProperty("irish.ulster.pl1.analytic", "true")
     );
@@ -36,7 +38,7 @@ public class BuNaMoVerbLookup {
         Dependency dependency = dependencyFor(verbUsage.getSentenceForm());
         TenseForm tenseForm = data.getTenseForm(verbUsage.getTense(), dependency, verbUsage.getSubject(), ULSTER_PL1_ANALYTIC);
         String particle = particleFor(verbUsage.getSentenceForm(), verbUsage.getTense(), lemma);
-        String mutated = applyMutation(tenseForm.value(), particle);
+        String mutated = applyMutation(tenseForm.value(), particle, verbUsage.getTense(), dependency, lemma);
         boolean includePronoun = shouldIncludePronoun(pronounMode, verbUsage.getSubject(), tenseForm.personSpecific());
 
         StringBuilder sb = new StringBuilder();
@@ -142,17 +144,33 @@ public class BuNaMoVerbLookup {
         };
     }
 
-    private static String applyMutation(String verbForm, String particle) {
+    private static String applyMutation(String verbForm, String particle, Tense tense, Dependency dependency, String lemma) {
         if (particle.isEmpty()) {
+            if (tense == Tense.PAST && dependency == Dependency.INDEP) {
+                return positivePastForm(verbForm, lemma);
+            }
             return verbForm;
         }
         if (particle.equals("an") || particle.equals("nach")) {
-            return eclipse(verbForm);
+            return eclipseVerb(verbForm);
         }
         if (particle.equals("ní") || particle.equals("níor") || particle.equals("nár") || particle.equals("ar")) {
             return lenite(verbForm);
         }
         return verbForm;
+    }
+
+    private static String positivePastForm(String verbForm, String lemma) {
+        if (verbForm.isEmpty()) {
+            return verbForm;
+        }
+        if (startsWithVowel(verbForm)) {
+            return "d'" + verbForm;
+        }
+        if (lemma != null && POSITIVE_PAST_NO_LENITION.contains(lemma)) {
+            return verbForm;
+        }
+        return lenite(verbForm);
     }
 
     private static String lenite(String word) {
@@ -187,7 +205,7 @@ public class BuNaMoVerbLookup {
         return "cfmpt".indexOf(second) < 0;
     }
 
-    private static String eclipse(String word) {
+    private static String eclipseVerb(String word) {
         if (word.isEmpty()) {
             return word;
         }
@@ -203,9 +221,15 @@ public class BuNaMoVerbLookup {
             case 'g' -> "ng" + word.substring(1);
             case 'p' -> "bp" + word.substring(1);
             case 't' -> "dt" + word.substring(1);
-            case 'a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú' -> "n-" + word;
             default -> word;
         };
+    }
+
+    private static boolean startsWithVowel(String word) {
+        if (word.isEmpty()) {
+            return false;
+        }
+        return "aeiouáéíóú".indexOf(word.charAt(0)) >= 0;
     }
 
     private static boolean alreadyEclipsed(String word) {

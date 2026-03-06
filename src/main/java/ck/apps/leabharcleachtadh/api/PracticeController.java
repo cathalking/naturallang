@@ -72,6 +72,19 @@ class PracticeController {
         return ResponseEntity.ok(new AnswerResponse(result.correct(), result.expected(), result.prompt(), result.usage(), result.asked(), result.remaining()));
     }
 
+    @PostMapping("/sessions/{id}/skip")
+    ResponseEntity<PracticeSession.SummaryResult> skip(@PathVariable String id) {
+        PracticeSession session = sessionManager.getSession(id);
+        if (session == null) {
+            return ResponseEntity.notFound().build();
+        }
+        try {
+            return ResponseEntity.ok(session.skip());
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @GetMapping("/sessions/{id}/summary")
     ResponseEntity<PracticeSession.SummaryResult> summary(@PathVariable String id) {
         PracticeSession session = sessionManager.getSession(id);

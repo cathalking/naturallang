@@ -46,11 +46,16 @@ application {
 springBoot {
     mainClass.set("ck.apps.leabharcleachtadh.api.PracticeApiApplication")
     buildInfo()
-    buildImage {
-        imageName.set("naturallang:latest")
-        docker {
-            publish.set(false)
-        }
+}
+
+tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+    mainClass.set("ck.apps.leabharcleachtadh.api.PracticeApiApplication")
+}
+
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootBuildImage>("bootBuildImage") {
+    imageName.set("naturallang:latest")
+    docker {
+        publish.set(false)
     }
 }
 

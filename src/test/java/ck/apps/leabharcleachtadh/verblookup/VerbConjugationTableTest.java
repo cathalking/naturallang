@@ -64,6 +64,20 @@ class VerbConjugationTableTest {
         assertThat(BuNaMoVerbLookup.parse(usage), is(expected));
     }
 
+    @ParameterizedTest(name = "irregular past positive: {0}")
+    @MethodSource("irregularPastPositiveCases")
+    void irregular_past_positive_statement_sg1(Verb verb, String expected) throws IOException {
+        VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_POSITIVE, verb, Subject.SING_1ST, Tense.PAST, "");
+        assertThat(BuNaMoVerbLookup.parse(usage), is(expected));
+    }
+
+    @ParameterizedTest(name = "regular past positive: {0}")
+    @MethodSource("regularPastPositiveCases")
+    void regular_past_positive_statement_sg1(Verb verb, String expected) throws IOException {
+        VerbUsage usage = VerbUsage.usage(SentenceForm.STATEMENT_POSITIVE, verb, Subject.SING_1ST, Tense.PAST, "");
+        assertThat(BuNaMoVerbLookup.parse(usage), is(expected));
+    }
+
     @ParameterizedTest(name = "strict synthetic omission: {0}")
     @MethodSource("strictSyntheticOmissionCases")
     void strict_synthetic_forms_omit_pronouns(Verb verb, Subject subject, String expected) throws IOException {
@@ -111,6 +125,30 @@ class VerbConjugationTableTest {
                 Arguments.of(Verb.FILL, "níor líon mé"),
                 Arguments.of(Verb.PUT, "níor chuir mé"),
                 Arguments.of(Verb.GATHER, "níor bhailigh mé")
+        );
+    }
+
+    private static Stream<Arguments> irregularPastPositiveCases() {
+        return Stream.of(
+                Arguments.of(Verb.BE, "bhí mé"),
+                Arguments.of(Verb.DO, "rinne mé"),
+                Arguments.of(Verb.GET, "fuair mé"),
+                Arguments.of(Verb.SEE, "chonaic mé"),
+                Arguments.of(Verb.GO, "chuaigh mé"),
+                Arguments.of(Verb.COME, "tháinig mé"),
+                Arguments.of(Verb.GIVE, "thug mé")
+        );
+    }
+
+    private static Stream<Arguments> regularPastPositiveCases() {
+        return Stream.of(
+                Arguments.of(Verb.FILL, "líon mé"),
+                Arguments.of(Verb.PUT, "chuir mé"),
+                Arguments.of(Verb.GATHER, "bhailigh mé"),
+                Arguments.of(Verb.FIND, "d'aimsigh mé"),
+                Arguments.of(Verb.LEAVE, "d'imigh mé"),
+                Arguments.of(Verb.LOOK, "d'amharc mé"),
+                Arguments.of(Verb.BEGIN, "thosaigh mé")
         );
     }
 

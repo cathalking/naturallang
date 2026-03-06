@@ -4,14 +4,14 @@ import ck.apps.leabharcleachtadh.games.PracticeEngine;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.VerbUsage;
 import ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookup;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 class PracticeSession {
     private final String id;
-    private final List<VerbUsage> permutations;
+    private final List<VerbUsage> remaining;
     private final PracticeEngine engine;
-    private final Random random;
     private final Integer maxQuestions;
     private int asked;
     private int correct;
@@ -21,10 +21,9 @@ class PracticeSession {
 
     PracticeSession(String id, List<VerbUsage> permutations, BuNaMoVerbLookup.PronounMode pronounMode, Integer maxQuestions) {
         this.id = id;
-        this.permutations = permutations;
+        this.remaining = new ArrayList<>(permutations);
         this.engine = new PracticeEngine(pronounMode);
         this.maxQuestions = maxQuestions;
-        this.random = new Random();
     }
 
     String getId() {
@@ -35,11 +34,11 @@ class PracticeSession {
         if (maxQuestions != null && asked >= maxQuestions) {
             return new PromptResult(null, null, true, summary());
         }
-        int size = permutations.size();
-        if (size == 0) {
+        if (remaining.isEmpty()) {
             return new PromptResult(null, null, true, summary());
         }
-        lastPrompt = permutations.get(random.nextInt(size));
+        int index = ThreadLocalRandom.current().nextInt(remaining.size());
+        lastPrompt = remaining.remove(index);
         asked++;
         return new PromptResult(lastPrompt, engine.prompt(lastPrompt), false, summary());
     }
@@ -59,8 +58,13 @@ class PracticeSession {
         return new AnswerResult(isCorrect, expected, prompt, lastPrompt, asked, remaining());
     }
 
-    void skip() {
+    SummaryResult skip() {
+        if (lastPrompt == null) {
+            throw new IllegalStateException("No prompt issued yet.");
+        }
         skipped++;
+        lastPrompt = null;
+        return summary();
     }
 
     SummaryResult summary() {
@@ -69,9 +73,9 @@ class PracticeSession {
 
     Integer remaining() {
         if (maxQuestions == null) {
-            return null;
+            return remaining.size();
         }
-        return Math.max(0, maxQuestions - asked);
+        return Math.min(remaining.size(), Math.max(0, maxQuestions - asked));
     }
 
     record AnswerResult(boolean correct, String expected, String prompt, VerbUsage usage, int asked, Integer remaining) {}

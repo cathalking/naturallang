@@ -8,6 +8,7 @@ import ck.apps.leabharcleachtadh.sentencegenerator.domain.Tense;
 import ck.apps.leabharcleachtadh.sentencegenerator.domain.VerbUsage;
 import ck.apps.leabharcleachtadh.verblookup.BuNaMoVerbLookup;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -29,6 +30,7 @@ class PracticeSessionManager {
         Subject[] subjectArray = subjects.toArray(new Subject[0]);
         String resolvedObject = object == null ? "(the thing)" : object;
         List<VerbUsage> permutations = Practice.permutations(verbArray, formArray, tenseArray, subjectArray, resolvedObject);
+        Collections.shuffle(permutations);
         String id = UUID.randomUUID().toString();
         PracticeSession session = new PracticeSession(id, permutations, pronounMode, maxQuestions);
         sessions.put(id, session);
